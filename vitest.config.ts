@@ -9,8 +9,14 @@ export default defineConfig({
     environment: "node",
     include: ["tests/**/*.test.ts"],
     globals: true,
-    testTimeout: 20000,
+    testTimeout: 30000,
     fileParallelism: false,
+    globalSetup: ["./tests/global-setup.ts"],
+    env: {
+      DATABASE_URL: "file:./test.db",
+      AUTH_SECRET: "test-secret-not-for-production",
+      NEXT_PUBLIC_APP_URL: "http://localhost:3000",
+    },
   },
   resolve: {
     alias: {

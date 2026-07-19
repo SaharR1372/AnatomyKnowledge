@@ -21,30 +21,30 @@
 - [x] Root config: package.json, tsconfig, next.config, tailwind, postcss, .gitignore, .env.example
 - [x] Prisma schema (full data model) + SQLite datasource
 - [x] lib: db client, auth config, validation, spaced-repetition, mastery
-- [ ] Global styles + layout + theme (light/dark)
+- [x] Global styles + layout + theme (light/dark)
 - [x] git init + first commit
 
 ## Phase 1 — Working MVP (vertical slice: shoulder region)
-- [ ] Auth: register + login + logout + session (separate accounts, hashed passwords)  <-- lib done; UI + route handler + actions remain
+- [x] Auth: register + login + logout + session (separate accounts, hashed passwords)
 - [x] Seed data: sources, body region (shoulder), muscles, bones, joints, movements, exercises, lessons, quizzes, visual assets, vocabulary
 - [x] Seed script that validates + imports content
-- [ ] Landing page
-- [ ] Dashboard (progress overview)
-- [ ] Learning Path + Lesson pages (with citations + safety + vocabulary)
-- [ ] Anatomy: muscle detail pages
-- [ ] Exercise library + exercise detail pages
-- [ ] Quiz engine: attempt, score, explanations, save history
-- [ ] Progress tracking (per-user, isolated)
-- [ ] Sources & References page
-- [ ] Image Credits page
-- [ ] Profile & Settings
-- [ ] Mobile-responsive nav + PWA manifest
+- [x] Landing page
+- [x] Dashboard (progress overview)
+- [x] Learning Path + Lesson pages (with citations + safety + vocabulary)
+- [x] Anatomy: muscle detail pages
+- [x] Exercise library + exercise detail pages
+- [x] Quiz engine: attempt, score, explanations, save history
+- [x] Progress tracking (per-user, isolated)
+- [x] Sources & References page
+- [x] Image Credits page
+- [x] Profile & Settings
+- [x] Mobile-responsive nav + PWA manifest
 
 ## Phase 1 — Quality
 - [ ] Tests: auth, user-data isolation, quiz scoring, progress, citation display, spaced-repetition
-- [ ] Loading / error / empty states
-- [ ] Accessibility pass (alt text, keyboard, contrast)
-- [ ] Typecheck + lint + build all green
+- [x] Loading / error / empty states
+- [x] Accessibility pass (alt text, keyboard, contrast) — basics in place; formal audit later
+- [x] Typecheck + lint + build all green (23 routes)
 
 ## Phase 1 — Docs & handoff
 - [ ] README.md (full)
