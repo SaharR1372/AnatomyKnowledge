@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 320" role="img" aria-label="Simplified front view of the shoulder bones and deltoid muscle">
+  <title>Shoulder region — bones and the deltoid (simplified)</title>
+  <desc>Front view of the right shoulder: the clavicle runs horizontally, the scapula sits behind, the humerus descends into the arm, and the deltoid caps the joint.</desc>
+  <style>
+    .label { font: 600 12px system-ui, sans-serif; fill: #0f172a; }
+    .bone { fill: #e2e8f0; stroke: #475569; stroke-width: 2; }
+    .muscle { fill: #ef4444; opacity: 0.4; stroke: #b91c1c; stroke-width: 1.5; }
+    .lead { stroke: #475569; stroke-width: 1; }
+  </style>
+  <!-- deltoid (cap over joint) -->
+  <path class="muscle" d="M150,110 Q120,120 118,175 Q140,200 175,195 Q185,150 178,112 Q165,104 150,110 Z" />
+  <!-- clavicle -->
+  <rect class="bone" x="120" y="96" width="110" height="14" rx="7" transform="rotate(-6 175 103)" />
+  <!-- scapula (triangle) -->
+  <polygon class="bone" points="196,100 244,120 206,190" />
+  <!-- humerus -->
+  <circle class="bone" cx="168" cy="120" r="20" />
+  <rect class="bone" x="158" y="130" width="22" height="150" rx="11" />
+  <!-- leaders + labels -->
+  <line class="lead" x1="150" y1="90" x2="120" y2="70" />
+  <text class="label" x="30" y="68">Clavicle (collarbone)</text>
+  <line class="lead" x1="230" y1="140" x2="270" y2="140" />
+  <text class="label" x="274" y="144">Scapula</text>
+  <line class="lead" x1="170" y1="240" x2="230" y2="250" />
+  <text class="label" x="234" y="254">Humerus</text>
+  <line class="lead" x1="130" y1="160" x2="80" y2="180" />
+  <text class="label" x="14" y="184">Deltoid</text>
+</svg>

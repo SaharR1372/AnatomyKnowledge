@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 320" role="img" aria-label="The three anatomical planes dividing a standing human figure">
+  <title>The three anatomical planes</title>
+  <desc>A standing figure with a vertical sagittal plane (left/right), a vertical frontal plane (front/back), and a horizontal transverse plane (top/bottom).</desc>
+  <style>
+    .label { font: 600 13px system-ui, sans-serif; fill: #0f172a; }
+    .plane { opacity: 0.35; }
+    .body { fill: #cbd5e1; stroke: #64748b; stroke-width: 2; }
+  </style>
+  <!-- transverse plane -->
+  <ellipse class="plane" cx="200" cy="180" rx="120" ry="28" fill="#f59e0b" />
+  <!-- frontal plane -->
+  <polygon class="plane" points="90,60 310,60 300,300 100,300" fill="#38bdf8" />
+  <!-- sagittal plane -->
+  <polygon class="plane" points="180,55 220,55 220,305 180,305" fill="#34d399" />
+  <!-- simple body -->
+  <circle class="body" cx="200" cy="80" r="26" />
+  <rect class="body" x="176" y="104" width="48" height="110" rx="16" />
+  <rect class="body" x="150" y="112" width="20" height="90" rx="10" />
+  <rect class="body" x="230" y="112" width="20" height="90" rx="10" />
+  <rect class="body" x="180" y="212" width="18" height="90" rx="9" />
+  <rect class="body" x="202" y="212" width="18" height="90" rx="9" />
+  <text class="label" x="300" y="150">Frontal</text>
+  <text class="label" x="228" y="52">Sagittal</text>
+  <text class="label" x="300" y="188">Transverse</text>
+</svg>

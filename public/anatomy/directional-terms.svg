@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 340" role="img" aria-label="Directional terms shown on a figure in anatomical position">
+  <title>Directional terms in anatomical position</title>
+  <desc>A figure standing in anatomical position with labelled arrows for superior, inferior, medial, lateral, proximal, and distal.</desc>
+  <style>
+    .label { font: 600 12px system-ui, sans-serif; fill: #0f172a; }
+    .body { fill: #cbd5e1; stroke: #64748b; stroke-width: 2; }
+    .axis { stroke: #2563eb; stroke-width: 2; marker-end: url(#arrow); }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#2563eb" />
+    </marker>
+  </defs>
+  <!-- body -->
+  <circle class="body" cx="210" cy="60" r="24" />
+  <rect class="body" x="188" y="82" width="44" height="120" rx="16" />
+  <rect class="body" x="158" y="90" width="20" height="110" rx="10" />
+  <rect class="body" x="242" y="90" width="20" height="110" rx="10" />
+  <rect class="body" x="190" y="200" width="18" height="110" rx="9" />
+  <rect class="body" x="212" y="200" width="18" height="110" rx="9" />
+  <!-- vertical axis superior/inferior -->
+  <line class="axis" x1="210" y1="120" x2="210" y2="30" />
+  <line class="axis" x1="210" y1="230" x2="210" y2="320" />
+  <text class="label" x="216" y="28">Superior (toward head)</text>
+  <text class="label" x="216" y="322">Inferior (toward feet)</text>
+  <!-- medial/lateral -->
+  <line class="axis" x1="210" y1="150" x2="120" y2="150" />
+  <line class="axis" x1="210" y1="150" x2="300" y2="150" />
+  <text class="label" x="10" y="145">Lateral</text>
+  <text class="label" x="305" y="145">Lateral</text>
+  <text class="label" x="150" y="170">← Medial →</text>
+  <!-- proximal/distal on arm -->
+  <text class="label" x="60" y="100">Proximal</text>
+  <text class="label" x="60" y="205">Distal</text>
+</svg>
