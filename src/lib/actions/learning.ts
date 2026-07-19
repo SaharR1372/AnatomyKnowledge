@@ -2,7 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { prisma } from "@/lib/db";
-import { requireUser } from "@/lib/session";
+import { requireUser, getCurrentUser } from "@/lib/session";
 import { answerSchema, type AnswerInput } from "@/lib/validation";
 import { gradeFromAnswer, schedule } from "@/lib/spaced-repetition";
 import type { Confidence } from "@/lib/enums";
@@ -79,7 +79,7 @@ export interface AnswerResult {
  * ON THE SERVER from the stored options (never trusted from the client).
  */
 export async function submitAnswerAction(raw: AnswerInput): Promise<AnswerResult> {
-  const user = await requireUser();
+  const user = await getCurrentUser();
   const input = answerSchema.parse(raw);
 
   const question = await prisma.quizQuestion.findUnique({
@@ -97,6 +97,18 @@ export async function submitAnswerAction(raw: AnswerInput): Promise<AnswerResult
     const selected = question.options.find((o) => o.id === input.selectedOptionId);
     isCorrect = Boolean(selected?.isCorrect);
   }
+
+  const buildResult = (masteryLevel: number, nextDueInDays: number): AnswerResult => ({
+    isCorrect,
+    correctOptionIds: question.options.filter((o) => o.isCorrect).map((o) => o.id),
+    explanation: question.explanation,
+    optionRationales: question.options.map((o) => ({ id: o.id, rationale: o.rationale, isCorrect: o.isCorrect })),
+    masteryLevel,
+    nextDueInDays,
+  });
+
+  // Guests may preview quizzes and see explanations, but nothing is saved.
+  if (!user) return buildResult(0, 0);
 
   // Was this the user's first-ever attempt at this question?
   const priorAttempts = await prisma.quizAttempt.count({
@@ -160,12 +172,5 @@ export async function submitAnswerAction(raw: AnswerInput): Promise<AnswerResult
   await touchStreak(user.id);
   revalidatePath("/dashboard");
 
-  return {
-    isCorrect,
-    correctOptionIds: question.options.filter((o) => o.isCorrect).map((o) => o.id),
-    explanation: question.explanation,
-    optionRationales: question.options.map((o) => ({ id: o.id, rationale: o.rationale, isCorrect: o.isCorrect })),
-    masteryLevel: next.masteryLevel,
-    nextDueInDays: next.intervalDays,
-  };
+  return buildResult(next.masteryLevel, next.intervalDays);
 }
