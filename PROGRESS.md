@@ -70,9 +70,11 @@ chapters 8-11 cover the musculoskeletal system; MedlinePlus for plain-language).
 Region checklist (request.md §5):
 - [x] Shoulders (seed vertical slice — in content/anatomy.ts)
 - [x] Chest (content/regions/chest.ts — pec major moved here from shoulder; pec minor, serratus, diaphragm, intercostals; 3 exercises, 3 lessons, 6 quizzes)
-- [ ] Upper back  <-- NEXT: trapezius (move from shoulder?), latissimus dorsi, rhomboids, levator scapulae, erector spinae (upper); rows, pull-ups, face pulls
-- [ ] Upper back
-- [ ] Lower back
+- [x] Upper back (content/regions/upper-back.ts — trapezius moved here from shoulder; latissimus dorsi, rhomboids, levator scapulae, teres major; 3 exercises, 2 lessons, 4 quizzes)
+- [ ] Lower back  <-- NEXT: erector spinae, quadratus lumborum, thoracolumbar fascia; hip-hinge/deadlift, back extension, bird-dog; heavy safety emphasis
+- [ ] Core and abdominal region (rectus abdominis, obliques, transversus abdominis; plank, dead bug, pallof press)
+- Suggested order for the rest: Lower back → Core → Pelvis/Hips → Glutes → Thighs → Knees(joint) → Lower legs → Ankles/feet(joint) → Arms → Elbows(joint) → Forearms/hands → Head/neck → Spine(structure)
+- NOTE for joint-type regions (knees, elbows, ankles, spine): fewer UNIQUE muscles — cover joint structure, ligaments, common injuries, safety, and reference muscles that live in adjacent regions.
 - [ ] Head and neck
 - [ ] Arms (upper arm: biceps/triceps)
 - [ ] Elbows
