@@ -55,6 +55,39 @@
 - [ ] Final deliverables summary (section 32) written to docs/HANDOFF.md
 - [ ] Git/GitHub publishing guide (docs/github-guide.md)
 
+## Content expansion — ALL body regions at FULL depth (user request 2026-07-19)
+Goal: author every body region from request.md §5 to the same depth/quality as the shoulder
+(bones + joints + 6-8 cited muscles + movements + 3-6 exercises + 4-7 lessons + 10+ quizzes).
+Quality bar is NON-NEGOTIABLE: every anatomical claim needs a real citation (OpenStax A&P 2e
+chapters 8-11 cover the musculoskeletal system; MedlinePlus for plain-language). NEVER fabricate.
+
+**Pattern for each new region (documented in docs/adding-new-content.md):**
+1. Create `content/regions/<region>.ts` exporting `{ region, movements, exercises, lessons, questions }`.
+2. Add a module for the region to the beginner path in `content/curriculum.ts` (slug `the-<region>`).
+3. Wire the exports into `content/index.ts` (bodyRegions, movements, exercises, lessons, questions).
+4. `npm run content:validate` → `npm run seed` → `npm run build` → commit.
+
+Region checklist (request.md §5):
+- [x] Shoulders (seed vertical slice — in content/anatomy.ts)
+- [ ] Chest
+- [ ] Upper back
+- [ ] Lower back
+- [ ] Head and neck
+- [ ] Arms (upper arm: biceps/triceps)
+- [ ] Elbows
+- [ ] Forearms and hands
+- [ ] Core and abdominal region
+- [ ] Spine
+- [ ] Pelvis and hips
+- [ ] Glutes
+- [ ] Thighs
+- [ ] Knees
+- [ ] Lower legs
+- [ ] Ankles and feet
+Note: some muscles act across regions (e.g. pectoralis major = chest, was seeded under shoulder;
+move to its canonical region when building that region). Muscle slug stays stable so exercise/quiz
+links keep working; only `bodyRegionId` changes.
+
 ## Later phases (deferred — architecture must support them)
 - [ ] Phase 2: interactive body map, more regions, flashcards UI, full spaced-repetition review UI, advanced exercise search, notes, bookmarks, certification practice mode, PWA install
 - [ ] Phase 3: intermediate/advanced paths, biomechanics visualizations, case studies, recommendations, multilingual, study groups, expert review workflow
