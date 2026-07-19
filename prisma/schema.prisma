@@ -1,0 +1,705 @@
+// Anatomy & Personal-Training Learning Platform — data model.
+//
+// Provider is SQLite for zero-setup local development (see docs/decisions/002).
+// To deploy on PostgreSQL, change `provider` to "postgresql" and point
+// DATABASE_URL at your Postgres instance, then re-run migrations.
+//
+// SQLite notes that shape this schema:
+//   * No native enums  -> enum-like values are `String` validated in app code
+//     (see src/lib/enums.ts for the allowed values).
+//   * No scalar lists   -> lists are either JSON strings or explicit join tables.
+// Keeping these as strings/JSON is portable and survives a Postgres migration.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// ===========================================================================
+// AUTH & USERS
+// ===========================================================================
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  name         String?
+  // "learner" | "editor" | "admin" — see src/lib/enums.ts (Role)
+  role         String   @default("learner")
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  profile        Profile?
+  lessonProgress LessonProgress[]
+  attempts       QuizAttempt[]
+  reviewStates   ReviewState[]
+  bookmarks      Bookmark[]
+  notes          Note[]
+  vocabulary     UserVocabulary[]
+  examAttempts   ExamAttempt[]
+}
+
+// Per-user learning profile & preferences. One row per user.
+model Profile {
+  id                   String   @id @default(cuid())
+  userId               String   @unique
+  user                 User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  // "beginner" | "intermediate" | "advanced"
+  learningLevel        String   @default("beginner")
+  // Preferred explanation difficulty: "beginner" | "advanced"
+  preferredDifficulty  String   @default("beginner")
+  // "metric" | "imperial"
+  preferredUnits       String   @default("metric")
+  // "system" | "light" | "dark"
+  theme                String   @default("system")
+  // JSON blob of accessibility prefs, e.g. {"reduceMotion":true,"largeText":false}
+  accessibility        String   @default("{}")
+  currentStreak        Int      @default(0)
+  longestStreak        Int      @default(0)
+  lastStudyDate        DateTime?
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+}
+
+// ===========================================================================
+// LEARNING STRUCTURE
+// ===========================================================================
+
+model LearningPath {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  title       String
+  description String
+  // "beginner" | "intermediate" | "advanced"
+  level       String
+  order       Int      @default(0)
+  modules     Module[]
+}
+
+model Module {
+  id          String       @id @default(cuid())
+  slug        String       @unique
+  title       String
+  description String
+  order       Int          @default(0)
+  pathId      String
+  path        LearningPath @relation(fields: [pathId], references: [id], onDelete: Cascade)
+  lessons     Lesson[]
+
+  @@index([pathId])
+}
+
+model Lesson {
+  id               String   @id @default(cuid())
+  slug             String   @unique
+  title            String
+  summary          String
+  // Full lesson content in Markdown (rendered safely on the server).
+  bodyMarkdown     String
+  // "beginner" | "intermediate" | "advanced"
+  level            String   @default("beginner")
+  // "draft" | "source_checked" | "expert_reviewed" | "published"
+  status           String   @default("draft")
+  estimatedMinutes Int      @default(10)
+  order            Int      @default(0)
+  // Safety guidance shown prominently on the lesson (Markdown, optional).
+  safetyNotes      String?
+  // Set when content is incomplete/uncertain and needs review.
+  reviewWarning    String?
+  moduleId         String?
+  module           Module?      @relation(fields: [moduleId], references: [id], onDelete: SetNull)
+  bodyRegionId     String?
+  bodyRegion       BodyRegion?  @relation(fields: [bodyRegionId], references: [id], onDelete: SetNull)
+
+  objectives       LearningObjective[]
+  progress         LessonProgress[]
+  questions        QuizQuestion[]
+  // Self-referential prerequisites.
+  prerequisites    LessonPrerequisite[] @relation("LessonToPrereq")
+  requiredBy       LessonPrerequisite[] @relation("PrereqToLesson")
+
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  @@index([moduleId])
+  @@index([bodyRegionId])
+  @@index([status])
+}
+
+model LearningObjective {
+  id       String @id @default(cuid())
+  lessonId String
+  lesson   Lesson @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+  text     String
+  order    Int    @default(0)
+
+  @@index([lessonId])
+}
+
+model LessonPrerequisite {
+  id             String @id @default(cuid())
+  lessonId       String
+  prerequisiteId String
+  lesson         Lesson @relation("LessonToPrereq", fields: [lessonId], references: [id], onDelete: Cascade)
+  prerequisite   Lesson @relation("PrereqToLesson", fields: [prerequisiteId], references: [id], onDelete: Cascade)
+
+  @@unique([lessonId, prerequisiteId])
+  @@index([prerequisiteId])
+}
+
+// ===========================================================================
+// ANATOMY
+// ===========================================================================
+
+model BodyRegion {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  name        String
+  description String
+  // Notes on relationships with nearby regions (Markdown).
+  relationships String?
+  safetyNotes String?
+  order       Int      @default(0)
+
+  bones     Bone[]
+  joints    Joint[]
+  muscles   Muscle[]
+  lessons   Lesson[]
+  questions QuizQuestion[]
+}
+
+model Bone {
+  id           String     @id @default(cuid())
+  slug         String     @unique
+  name         String
+  latinName    String?
+  description  String
+  // Important surface/bony landmarks (Markdown).
+  landmarks    String?
+  bodyRegionId String
+  bodyRegion   BodyRegion @relation(fields: [bodyRegionId], references: [id], onDelete: Cascade)
+
+  @@index([bodyRegionId])
+}
+
+model Joint {
+  id                String     @id @default(cuid())
+  slug              String     @unique
+  name              String
+  // e.g. "ball-and-socket", "hinge", "gliding"
+  jointType         String
+  description       String
+  articulatingBones String?
+  movementsAllowed  String?
+  bodyRegionId      String
+  bodyRegion        BodyRegion @relation(fields: [bodyRegionId], references: [id], onDelete: Cascade)
+
+  exerciseJoints ExerciseJoint[]
+
+  @@index([bodyRegionId])
+}
+
+model Muscle {
+  id                  String     @id @default(cuid())
+  slug                String     @unique
+  commonName          String
+  scientificName      String
+  pronunciation       String?
+  bodyRegionId        String
+  bodyRegion          BodyRegion @relation(fields: [bodyRegionId], references: [id], onDelete: Cascade)
+  locationSimple      String
+  origin              String?
+  insertion           String?
+  // Main action(s), Markdown or newline-separated.
+  actions             String
+  jointsCrossed       String?
+  // "sagittal" | "frontal" | "transverse" | "multiple"
+  movementPlane       String?
+  innervation         String?
+  functionDaily       String?
+  functionExercise    String?
+  beginnerExplanation String
+  advancedExplanation String?
+  commonlyConfused    String?
+  misconceptions      String?
+  safetyInfo          String?
+  // "draft" | "source_checked" | "expert_reviewed" | "published"
+  status              String     @default("draft")
+  reviewWarning       String?
+
+  exerciseMuscles ExerciseMuscle[]
+  questions       QuizQuestion[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([bodyRegionId])
+  @@index([status])
+}
+
+model Movement {
+  id          String  @id @default(cuid())
+  slug        String  @unique
+  name        String
+  description String
+  // "sagittal" | "frontal" | "transverse"
+  plane       String?
+  axis        String?
+  jointAction String?
+  // The opposing movement (e.g. flexion <-> extension), self relation.
+  oppositeId  String?
+  opposite    Movement?  @relation("MovementOpposite", fields: [oppositeId], references: [id], onDelete: SetNull)
+  opposedBy   Movement[] @relation("MovementOpposite")
+
+  exerciseMovements ExerciseMovement[]
+}
+
+// ===========================================================================
+// EXERCISES
+// ===========================================================================
+
+model Exercise {
+  id                String   @id @default(cuid())
+  slug              String   @unique
+  name              String
+  altNames          String?
+  simpleExplanation String
+  purpose           String
+  startingPosition  String
+  // JSON array of step strings.
+  instructions      String
+  breathing         String?
+  cues              String?
+  commonMistakes    String?
+  safety            String?
+  regression        String?
+  progression       String?
+  alternatives      String?
+  whyItWorks        String?
+  benefitsWho       String?
+  cautionWho        String?
+  // JSON array of equipment strings.
+  equipment         String   @default("[]")
+  // "beginner" | "intermediate" | "advanced"
+  difficulty        String   @default("beginner")
+  level             String   @default("beginner")
+  // "squat"|"hinge"|"push"|"pull"|"carry"|"lunge"|"rotation"|"isolation" ...
+  movementPattern   String?
+  // "home" | "gym" | "both"
+  setting           String   @default("both")
+  unilateral        Boolean  @default(false)
+  // "open" | "closed"
+  chain             String?
+  // "sagittal" | "frontal" | "transverse" | "multiple"
+  movementPlane     String?
+  status            String   @default("draft")
+  reviewWarning     String?
+
+  muscles   ExerciseMuscle[]
+  joints    ExerciseJoint[]
+  movements ExerciseMovement[]
+  questions QuizQuestion[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([status])
+  @@index([difficulty])
+}
+
+model ExerciseMuscle {
+  id         String   @id @default(cuid())
+  exerciseId String
+  muscleId   String
+  // "primary" | "secondary" | "stabilizer"
+  role       String
+  exercise   Exercise @relation(fields: [exerciseId], references: [id], onDelete: Cascade)
+  muscle     Muscle   @relation(fields: [muscleId], references: [id], onDelete: Cascade)
+
+  @@unique([exerciseId, muscleId, role])
+  @@index([muscleId])
+}
+
+model ExerciseJoint {
+  id          String   @id @default(cuid())
+  exerciseId  String
+  jointId     String
+  jointAction String
+  exercise    Exercise @relation(fields: [exerciseId], references: [id], onDelete: Cascade)
+  joint       Joint    @relation(fields: [jointId], references: [id], onDelete: Cascade)
+
+  @@index([exerciseId])
+  @@index([jointId])
+}
+
+model ExerciseMovement {
+  id         String   @id @default(cuid())
+  exerciseId String
+  movementId String
+  exercise   Exercise @relation(fields: [exerciseId], references: [id], onDelete: Cascade)
+  movement   Movement @relation(fields: [movementId], references: [id], onDelete: Cascade)
+
+  @@unique([exerciseId, movementId])
+  @@index([movementId])
+}
+
+// ===========================================================================
+// SOURCES, CITATIONS & VISUAL ASSETS  (evidence layer)
+// ===========================================================================
+
+model Source {
+  id              String   @id @default(cuid())
+  slug            String   @unique
+  title           String
+  organization    String?
+  author          String?
+  url             String
+  publicationDate String?
+  lastUpdatedDate String?
+  lastCheckedDate String
+  // "gov_guideline"|"textbook"|"professional_org"|"cert_outline"|"university"|"peer_reviewed"
+  sourceType      String
+  // 1 = most authoritative ... 6 = least (mirrors the request's source priority)
+  reliabilityTier Int
+  license         String
+  notes           String?
+
+  citations Citation[]
+
+  createdAt DateTime @default(now())
+}
+
+// Connects a specific claim in a piece of content to a source.
+// Polymorphic by (entityType, entityId) so any content type can cite sources.
+model Citation {
+  id         String @id @default(cuid())
+  sourceId   String
+  source     Source @relation(fields: [sourceId], references: [id], onDelete: Cascade)
+  // "lesson" | "muscle" | "exercise" | "quiz_question" | "body_region" | "safety"
+  entityType String
+  entityId   String
+  // The exact claim this citation supports.
+  claim      String
+  // Chapter / section / page / heading in the source.
+  locator    String?
+  note       String?
+
+  @@index([entityType, entityId])
+  @@index([sourceId])
+}
+
+model VisualAsset {
+  id                    String   @id @default(cuid())
+  slug                  String   @unique
+  title                 String
+  // "svg" | "image" | "sequence"
+  kind                  String   @default("svg")
+  // Path under /public (original SVGs) or object-storage URL.
+  filePath              String
+  creator               String
+  sourceUrl             String?
+  license               String
+  attributionText       String
+  modificationAllowed   Boolean  @default(true)
+  commercialUseAllowed  Boolean  @default(false)
+  licenseCheckedDate    String
+  altText               String
+  description           String
+  isOriginal            Boolean  @default(true)
+
+  usages AssetUsage[]
+
+  createdAt DateTime @default(now())
+}
+
+model AssetUsage {
+  id         String      @id @default(cuid())
+  assetId    String
+  asset      VisualAsset @relation(fields: [assetId], references: [id], onDelete: Cascade)
+  entityType String
+  entityId   String
+
+  @@index([assetId])
+  @@index([entityType, entityId])
+}
+
+// ===========================================================================
+// QUIZZES
+// ===========================================================================
+
+model QuizQuestion {
+  id           String  @id @default(cuid())
+  // "multiple_choice" | "true_false" | "fill_blank" | "matching" | "identify" | "scenario"
+  type         String
+  prompt       String
+  // Why the correct answer is correct (shown after answering). Cites sources.
+  explanation  String
+  // "beginner" | "intermediate" | "advanced"
+  difficulty   String  @default("beginner")
+  // Extra structured data (e.g. matching pairs, fill-blank answer) as JSON.
+  questionData String?
+  status       String  @default("draft")
+
+  // Optional links to the content this question assesses.
+  lessonId     String?
+  lesson       Lesson?     @relation(fields: [lessonId], references: [id], onDelete: SetNull)
+  muscleId     String?
+  muscle       Muscle?     @relation(fields: [muscleId], references: [id], onDelete: SetNull)
+  exerciseId   String?
+  exercise     Exercise?   @relation(fields: [exerciseId], references: [id], onDelete: SetNull)
+  bodyRegionId String?
+  bodyRegion   BodyRegion? @relation(fields: [bodyRegionId], references: [id], onDelete: SetNull)
+  domainId     String?
+  domain       CertificationDomain? @relation(fields: [domainId], references: [id], onDelete: SetNull)
+
+  options  AnswerOption[]
+  attempts QuizAttempt[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([lessonId])
+  @@index([muscleId])
+  @@index([exerciseId])
+  @@index([domainId])
+}
+
+model AnswerOption {
+  id         String       @id @default(cuid())
+  questionId String
+  question   QuizQuestion @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  text       String
+  isCorrect  Boolean      @default(false)
+  // Why this option is right or wrong (feedback shown after answering).
+  rationale  String?
+  order      Int          @default(0)
+
+  attempts QuizAttempt[]
+
+  @@index([questionId])
+}
+
+// One row per answered question per user. Drives history + spaced repetition.
+model QuizAttempt {
+  id               String        @id @default(cuid())
+  userId           String
+  user             User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  questionId       String
+  question         QuizQuestion  @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  selectedOptionId String?
+  selectedOption   AnswerOption? @relation(fields: [selectedOptionId], references: [id], onDelete: SetNull)
+  freeResponse     String?
+  isCorrect        Boolean
+  // Self-reported: "dont_know" | "unsure" | "know" | "too_easy"
+  confidence       String?
+  // True if this was the user's first-ever attempt at this question.
+  firstAttempt     Boolean       @default(false)
+  examAttemptId    String?
+  examAttempt      ExamAttempt?  @relation(fields: [examAttemptId], references: [id], onDelete: SetNull)
+  createdAt        DateTime      @default(now())
+
+  @@index([userId])
+  @@index([questionId])
+  @@index([userId, questionId])
+}
+
+// ===========================================================================
+// PROGRESS, MASTERY & SPACED REPETITION
+// ===========================================================================
+
+model LessonProgress {
+  id           String    @id @default(cuid())
+  userId       String
+  user         User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  lessonId     String
+  lesson       Lesson    @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+  // "not_started" | "in_progress" | "completed"
+  status       String    @default("in_progress")
+  completedAt  DateTime?
+  lastViewedAt DateTime  @default(now())
+
+  @@unique([userId, lessonId])
+  @@index([userId])
+}
+
+// Generic spaced-repetition state for any reviewable item (quiz question or
+// flashcard). Implements an SM-2-style schedule (see src/lib/spaced-repetition.ts).
+model ReviewState {
+  id             String    @id @default(cuid())
+  userId         String
+  user           User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  // "question" | "flashcard"
+  itemType       String
+  itemId         String
+  repetitions    Int       @default(0)
+  intervalDays   Int       @default(0)
+  easeFactor     Float     @default(2.5)
+  lapses         Int       @default(0)
+  dueDate        DateTime  @default(now())
+  lastReviewedAt DateTime?
+  // 0..1 mastery estimate. A topic is never "mastered" from a single answer.
+  masteryLevel   Float     @default(0)
+  // Count of correct answers on the very first exposure.
+  firstAttemptCorrect Boolean @default(false)
+
+  @@unique([userId, itemType, itemId])
+  @@index([userId, dueDate])
+}
+
+// ===========================================================================
+// PERSONALIZATION: bookmarks, notes, vocabulary, flashcards
+// ===========================================================================
+
+model Bookmark {
+  id         String   @id @default(cuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  // "lesson" | "muscle" | "exercise" | "body_region" | "term"
+  entityType String
+  entityId   String
+  createdAt  DateTime @default(now())
+
+  @@unique([userId, entityType, entityId])
+  @@index([userId])
+}
+
+model Note {
+  id         String   @id @default(cuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  entityType String
+  entityId   String
+  body       String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([userId])
+  @@index([userId, entityType, entityId])
+}
+
+model VocabularyTerm {
+  id                  String  @id @default(cuid())
+  slug                String  @unique
+  term                String
+  simpleDefinition    String
+  technicalDefinition String?
+  pronunciation       String?
+  // "noun" | "verb" | "adjective" | ...
+  partOfSpeech        String?
+  exampleSentence     String?
+  relatedTerms        String?
+  confusedTerms       String?
+  audioUrl            String?
+
+  users      UserVocabulary[]
+  flashcards Flashcard[]
+}
+
+model UserVocabulary {
+  id        String         @id @default(cuid())
+  userId    String
+  user      User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  termId    String
+  term      VocabularyTerm @relation(fields: [termId], references: [id], onDelete: Cascade)
+  // "new" | "learning" | "known"
+  familiarity String       @default("new")
+  savedAt   DateTime       @default(now())
+
+  @@unique([userId, termId])
+  @@index([userId])
+}
+
+model Flashcard {
+  id       String  @id @default(cuid())
+  front    String
+  back     String
+  // Optional links to originating content.
+  termId   String?
+  term     VocabularyTerm? @relation(fields: [termId], references: [id], onDelete: SetNull)
+  muscleId String?
+  category String?
+}
+
+// ===========================================================================
+// CERTIFICATION PREPARATION
+// ===========================================================================
+
+model Certification {
+  id                 String   @id @default(cuid())
+  slug               String   @unique
+  name               String
+  organization       String
+  outlineUrl         String
+  outlineCheckedDate String
+  description        String
+
+  domains CertificationDomain[]
+  exams   PracticeExam[]
+}
+
+model CertificationDomain {
+  id              String        @id @default(cuid())
+  certificationId String
+  certification   Certification @relation(fields: [certificationId], references: [id], onDelete: Cascade)
+  code            String
+  name            String
+  weightPercent   Float?
+  description     String
+  order           Int           @default(0)
+
+  questions QuizQuestion[]
+
+  @@index([certificationId])
+}
+
+model PracticeExam {
+  id              String        @id @default(cuid())
+  slug            String        @unique
+  certificationId String
+  certification   Certification @relation(fields: [certificationId], references: [id], onDelete: Cascade)
+  title           String
+  description     String
+  timeLimitMinutes Int?
+  questionCount   Int           @default(20)
+
+  attempts ExamAttempt[]
+
+  @@index([certificationId])
+}
+
+model ExamAttempt {
+  id          String    @id @default(cuid())
+  userId      String
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  examId      String
+  exam        PracticeExam @relation(fields: [examId], references: [id], onDelete: Cascade)
+  startedAt   DateTime  @default(now())
+  completedAt DateTime?
+  scorePercent Float?
+
+  attempts QuizAttempt[]
+
+  @@index([userId])
+  @@index([examId])
+}
+
+// ===========================================================================
+// CONTENT REVIEW (audit trail for the editorial workflow)
+// ===========================================================================
+
+model ContentReview {
+  id         String   @id @default(cuid())
+  entityType String
+  entityId   String
+  // "draft" | "source_checked" | "expert_reviewed" | "published" | "unpublished"
+  status     String
+  reviewer   String?
+  notes      String?
+  createdAt  DateTime @default(now())
+
+  @@index([entityType, entityId])
+}
