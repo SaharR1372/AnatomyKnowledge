@@ -19,6 +19,19 @@ export const shoulderRegion: BodyRegionSeed = {
     "The shoulder works closely with the **neck** and **upper back** (which position the shoulder blade), the **chest** (pectoral muscles), and the **arm** and **elbow** below it. Because the shoulder blade glides on the rib cage, posture of the spine and rib cage strongly affects how the shoulder moves.",
   safetyNotes:
     "Shoulder pain, clicking with pain, weakness, numbness, or loss of motion should be assessed by a qualified healthcare professional. A personal trainer teaches movement and exercise; they do not diagnose or treat shoulder injuries.",
+  assetSlugs: ["shoulder-region"],
+  pronunciations: [
+    { term: "Clavicle", say: "KLAV-ih-kul" },
+    { term: "Scapula", say: "SKAP-yoo-luh" },
+    { term: "Humerus", say: "HYOO-mer-us" },
+    { term: "Glenohumeral joint", say: "glee-no-HYOO-mer-ul" },
+    { term: "Deltoid", say: "DEL-toyd" },
+    { term: "Supraspinatus", say: "soo-pra-spy-NAY-tus" },
+    { term: "Infraspinatus", say: "in-fra-spy-NAY-tus" },
+    { term: "Subscapularis", say: "sub-scap-you-LAIR-iss" },
+    { term: "Teres minor", say: "TEH-reez MY-nor" },
+    { term: "Acromioclavicular joint", say: "ah-KRO-mee-o-klah-VIK-you-lar" },
+  ],
   citations: [
     {
       sourceSlug: OPENSTAX,

@@ -18,6 +18,17 @@ export const chestRegion: BodyRegionSeed = {
     "The chest works closely with the **shoulder** (the pectoralis major crosses to the arm and helps pushing), the **upper back** (which must allow the shoulder blades to glide as you press), and the **core** (which stabilizes the torso during pressing). Breathing links the chest to the whole trunk.",
   safetyNotes:
     "Chest pain is never something to 'train through' — chest pain, pressure, shortness of breath, dizziness, or pain spreading to the arm/jaw are medical warning signs and need urgent care. A trainer teaches pressing technique; they do not assess chest pain.",
+  assetSlugs: ["chest-region"],
+  pronunciations: [
+    { term: "Thorax", say: "THOR-aks" },
+    { term: "Sternum", say: "STUR-num" },
+    { term: "Costal cartilage", say: "KOS-tul KAR-tih-lij" },
+    { term: "Pectoralis major", say: "pek-tor-AL-iss MAY-jor" },
+    { term: "Pectoralis minor", say: "pek-tor-AL-iss MY-nor" },
+    { term: "Serratus anterior", say: "ser-AY-tus an-TEER-ee-or" },
+    { term: "Diaphragm", say: "DY-uh-fram" },
+    { term: "Intercostals", say: "in-ter-KOS-tul" },
+  ],
   citations: [
     {
       sourceSlug: OPENSTAX,

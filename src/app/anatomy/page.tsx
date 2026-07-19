@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { prisma } from "@/lib/db";
+import { getAssets } from "@/lib/queries";
 import { Card, PageHeader, Badge, StatusBadge } from "@/components/ui";
+import { AssetFigure } from "@/components/Citations";
+import { PronunciationGuide, type PronunciationItem } from "@/components/PronunciationGuide";
 
 export const metadata: Metadata = { title: "Anatomy" };
 
@@ -15,21 +18,34 @@ export default async function AnatomyPage() {
     },
   });
 
+  // Fetch each region's overview figure (linked via AssetUsage) in parallel.
+  const regionAssets = await Promise.all(regions.map((r) => getAssets("body_region", r.id)));
+
   return (
     <div>
       <PageHeader
         title="Anatomy"
-        subtitle="Explore body regions and their muscles, bones, and joints. The MVP ships one complete region — the shoulder — with more planned."
+        subtitle="Explore body regions and their muscles, bones, and joints — each overview includes a 'How to say it' pronunciation guide with audio."
       />
 
-      <div className="space-y-8">
-        {regions.map((region) => (
+      <div className="space-y-10">
+        {regions.map((region, i) => {
+          const figure = regionAssets[i][0];
+          const pronunciations = JSON.parse(region.pronunciations ?? "[]") as PronunciationItem[];
+          return (
           <section key={region.id}>
             <div className="mb-2 flex items-center gap-3">
               <h2 className="text-xl font-bold">{region.name}</h2>
               <Badge tone="teal">{region.muscles.length} muscles</Badge>
             </div>
             <p className="mb-4 max-w-prose text-sm text-muted">{region.description}</p>
+
+            {(figure || pronunciations.length > 0) && (
+              <div className="mb-4 grid gap-4 md:grid-cols-2">
+                {figure && <AssetFigure asset={figure} />}
+                {pronunciations.length > 0 && <PronunciationGuide items={pronunciations} />}
+              </div>
+            )}
 
             <div className="grid gap-4 md:grid-cols-3">
               <Card>
@@ -61,7 +77,8 @@ export default async function AnatomyPage() {
               </Card>
             </div>
           </section>
-        ))}
+          );
+        })}
       </div>
 
       <p className="mt-8 rounded-lg border border-dashed border-border p-4 text-sm text-muted">

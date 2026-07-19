@@ -133,11 +133,13 @@ async function main() {
         description: region.description,
         relationships: region.relationships,
         safetyNotes: region.safetyNotes,
+        pronunciations: region.pronunciations ? JSON.stringify(region.pronunciations) : null,
         order: region.order ?? 0,
       },
     });
     regionId.set(region.slug, row.id);
     await addCitations("body_region", row.id, region.citations);
+    await addAssetUsages("body_region", row.id, region.assetSlugs);
 
     for (const b of region.bones) {
       await prisma.bone.create({ data: { ...b, bodyRegionId: row.id } });

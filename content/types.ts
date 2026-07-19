@@ -114,6 +114,11 @@ export interface MovementSeed {
   oppositeSlug?: string;
 }
 
+export interface PronunciationSeed {
+  term: string;
+  say: string; // simple phonetic respelling, e.g. "STUR-num"
+}
+
 export interface BodyRegionSeed {
   slug: string;
   name: string;
@@ -121,6 +126,10 @@ export interface BodyRegionSeed {
   relationships?: string;
   safetyNotes?: string;
   order?: number;
+  // Pronunciation helpers for the hard words in this region (shown in overview).
+  pronunciations?: PronunciationSeed[];
+  // Figure(s) shown in the region overview.
+  assetSlugs?: string[];
   bones: BoneSeed[];
   joints: JointSeed[];
   muscles: MuscleSeed[];

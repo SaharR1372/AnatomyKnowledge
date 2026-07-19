@@ -17,6 +17,17 @@ export const upperBackRegion: BodyRegionSeed = {
     "The upper back is the **pulling** partner to the **chest's** pushing: they balance each other. It works with the **shoulder** (positioning the scapula so the arm can move), the **neck** (the upper trapezius blends into it), and the **lower back/spine** below.",
   safetyNotes:
     "Back pain with numbness, tingling, weakness, or pain spreading down an arm should be assessed by a healthcare professional. A trainer coaches pulling technique and posture; they do not diagnose or treat back or nerve pain.",
+  assetSlugs: ["upper-back-region"],
+  pronunciations: [
+    { term: "Thoracic vertebrae", say: "thor-ASS-ik VER-teh-bray" },
+    { term: "Scapula", say: "SKAP-yoo-luh" },
+    { term: "Scapulothoracic", say: "SKAP-you-lo-thor-ASS-ik" },
+    { term: "Trapezius", say: "truh-PEE-zee-us" },
+    { term: "Latissimus dorsi", say: "lah-TISS-ih-mus DOR-sy" },
+    { term: "Rhomboids", say: "ROM-boyds" },
+    { term: "Levator scapulae", say: "leh-VAY-tor SKAP-you-lay" },
+    { term: "Teres major", say: "TEH-reez MAY-jor" },
+  ],
   citations: [
     {
       sourceSlug: OPENSTAX,

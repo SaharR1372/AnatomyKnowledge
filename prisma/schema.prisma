@@ -163,6 +163,9 @@ model BodyRegion {
   // Notes on relationships with nearby regions (Markdown).
   relationships String?
   safetyNotes String?
+  // JSON array of {term, say} pronunciation helpers for hard words in this
+  // region, shown in the overview (spec §2/§14: pronunciation assistance).
+  pronunciations String?
   order       Int      @default(0)
 
   bones     Bone[]
