@@ -32,9 +32,15 @@ export const learningPaths: LearningPathSeed[] = [
         description: "The rib cage, the pectoralis major and its pushing role, and the muscles of breathing.",
       },
       {
+        slug: "the-upper-back",
+        title: "The Upper Back",
+        order: 4,
+        description: "The muscles that move the shoulder blades and pull the arms — the 'pull' balance to the chest.",
+      },
+      {
         slug: "training-safely",
         title: "Training Safely",
-        order: 4,
+        order: 5,
         description: "General safety principles and understanding a personal trainer's scope of practice.",
       },
     ],

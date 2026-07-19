@@ -256,38 +256,6 @@ export const shoulderRegion: BodyRegionSeed = {
         },
       ],
     },
-    {
-      slug: "trapezius",
-      commonName: "Trapezius",
-      scientificName: "Trapezius",
-      pronunciation: "truh-PEE-zee-us",
-      locationSimple: "The large diamond-shaped muscle of the upper back and neck.",
-      origin: "Base of the skull and spinous processes of the cervical and thoracic vertebrae.",
-      insertion: "Clavicle, acromion, and spine of the scapula.",
-      actions:
-        "Moves and stabilizes the scapula: upper fibers elevate, middle fibers retract, lower fibers depress; together they help rotate the scapula upward for overhead reaching.",
-      jointsCrossed: "Scapulothoracic and acromioclavicular articulations",
-      movementPlane: "multiple",
-      innervation: "Accessory nerve (CN XI) and cervical nerves C3–C4",
-      functionDaily: "Shrugging, carrying loads, and positioning the shoulder blade for reaching.",
-      functionExercise: "Key stabilizer/mover in rows, shrugs, and overhead work; supports good posture under load.",
-      beginnerExplanation:
-        "A big back-of-the-neck-and-shoulders muscle that moves your shoulder blades up, together, and down, and helps you reach overhead.",
-      advancedExplanation:
-        "The three functional regions produce a force couple with the serratus anterior to rotate the scapula upward, which is essential for pain-free overhead motion.",
-      commonlyConfused: "Its upper fibers are often confused with the deltoid or the levator scapulae.",
-      misconceptions: "The trapezius is not just the 'shrug muscle' at the top — its middle and lower fibers are vital for shoulder-blade control.",
-      safetyInfo: "Chronic upper-trap tension is common with stress and desk posture; balance with mid/lower-trap strengthening.",
-      status: "source_checked",
-      citations: [
-        {
-          sourceSlug: OPENSTAX,
-          claim:
-            "The trapezius stabilizes and moves the scapula (elevation, retraction, depression, and upward rotation).",
-          locator: "Ch. 11.5 Muscles of the Pectoral Girdle and Upper Limbs",
-        },
-      ],
-    },
   ],
 };
 

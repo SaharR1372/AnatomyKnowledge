@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 320" role="img" aria-label="Simplified back view of the upper back: trapezius, rhomboids, and latissimus dorsi">
+  <title>Upper back — trapezius, rhomboids, and latissimus dorsi (simplified)</title>
+  <desc>Back view showing the diamond-shaped trapezius over the upper back and neck, the rhomboids between the shoulder blades, and the broad latissimus dorsi fanning up from the lower back.</desc>
+  <style>
+    .label { font: 600 12px system-ui, sans-serif; fill: #0f172a; }
+    .muscle { opacity: 0.4; stroke-width: 1.5; }
+    .trap { fill: #ef4444; stroke: #b91c1c; }
+    .rhom { fill: #f59e0b; stroke: #b45309; }
+    .lat { fill: #3b82f6; stroke: #1d4ed8; }
+    .lead { stroke: #475569; stroke-width: 1; }
+    .spine { stroke: #475569; stroke-width: 3; }
+  </style>
+  <!-- trapezius diamond -->
+  <polygon class="muscle trap" points="180,60 250,110 180,200 110,110" />
+  <!-- rhomboids -->
+  <polygon class="muscle rhom" points="180,110 210,120 195,165 180,150" />
+  <polygon class="muscle rhom" points="180,110 150,120 165,165 180,150" />
+  <!-- latissimus dorsi -->
+  <path class="muscle lat" d="M150,150 Q110,200 130,260 L180,250 L180,160 Z" />
+  <path class="muscle lat" d="M210,150 Q250,200 230,260 L180,250 L180,160 Z" />
+  <!-- spine -->
+  <line class="spine" x1="180" y1="60" x2="180" y2="270" />
+  <line class="lead" x1="120" y1="90" x2="60" y2="80" />
+  <text class="label" x="18" y="78">Trapezius</text>
+  <line class="lead" x1="200" y1="135" x2="270" y2="130" />
+  <text class="label" x="274" y="134">Rhomboids</text>
+  <line class="lead" x1="135" y1="220" x2="60" y2="235" />
+  <text class="label" x="10" y="239">Latissimus dorsi</text>
+</svg>

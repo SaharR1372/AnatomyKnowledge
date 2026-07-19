@@ -74,4 +74,20 @@ export const visualAssets: VisualAssetSeed[] = [
       "A beginner-level schematic of the chest's bony frame (sternum and ribs) and the location of the pectoralis major.",
     isOriginal: true,
   },
+  {
+    slug: "upper-back-region",
+    title: "Upper back — trapezius, rhomboids, and latissimus dorsi (simplified)",
+    filePath: "/anatomy/upper-back-region.svg",
+    creator: "Anatomy Learning Platform (original)",
+    license: "CC0-1.0 (public domain dedication)",
+    attributionText: "Original diagram created for this project.",
+    modificationAllowed: true,
+    commercialUseAllowed: true,
+    licenseCheckedDate: "2026-07-19",
+    altText:
+      "Simplified back view showing the diamond-shaped trapezius over the upper back and neck, the rhomboids between the shoulder blades, and the broad latissimus dorsi fanning up from the lower back.",
+    description:
+      "A beginner-level schematic of the major upper-back muscles: trapezius, rhomboids, and latissimus dorsi.",
+    isOriginal: true,
+  },
 ];
