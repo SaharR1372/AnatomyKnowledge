@@ -18,16 +18,16 @@
 ---
 
 ## Phase 0 — Scaffold & foundations
-- [ ] Root config: package.json, tsconfig, next.config, tailwind, postcss, .gitignore, .env.example
-- [ ] Prisma schema (full data model) + SQLite datasource
-- [ ] lib: db client, auth config, validation, spaced-repetition, mastery
+- [x] Root config: package.json, tsconfig, next.config, tailwind, postcss, .gitignore, .env.example
+- [x] Prisma schema (full data model) + SQLite datasource
+- [x] lib: db client, auth config, validation, spaced-repetition, mastery
 - [ ] Global styles + layout + theme (light/dark)
-- [ ] git init + first commit
+- [x] git init + first commit
 
 ## Phase 1 — Working MVP (vertical slice: shoulder region)
-- [ ] Auth: register + login + logout + session (separate accounts, hashed passwords)
-- [ ] Seed data: sources, body region (shoulder), muscles, bones, joints, movements, exercises, lessons, quizzes, visual assets, vocabulary
-- [ ] Seed script that validates + imports content
+- [ ] Auth: register + login + logout + session (separate accounts, hashed passwords)  <-- lib done; UI + route handler + actions remain
+- [x] Seed data: sources, body region (shoulder), muscles, bones, joints, movements, exercises, lessons, quizzes, visual assets, vocabulary
+- [x] Seed script that validates + imports content
 - [ ] Landing page
 - [ ] Dashboard (progress overview)
 - [ ] Learning Path + Lesson pages (with citations + safety + vocabulary)

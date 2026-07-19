@@ -25,6 +25,9 @@ export const answerSchema = z.object({
   selectedOptionId: z.string().min(1).optional(),
   freeResponse: z.string().max(2000).optional(),
   confidence: z.enum(CONFIDENCE).optional(),
+  // For self-graded question types (matching, fill-in-the-blank) where the user
+  // reveals the answer and reports whether they got it right.
+  selfCorrect: z.boolean().optional(),
 });
 export type AnswerInput = z.infer<typeof answerSchema>;
 

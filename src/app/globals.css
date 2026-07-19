@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Design tokens as RGB triplets so Tailwind's <alpha-value> works.
+   Light theme is the default; .dark on <html> switches to dark values. */
+:root {
+  --bg: 248 250 252;
+  --surface: 255 255 255;
+  --surface-2: 241 245 249;
+  --border: 226 232 240;
+  --text: 15 23 42;
+  --muted: 100 116 139;
+  --primary: 37 99 235;
+  --primary-fg: 255 255 255;
+  --accent: 13 148 136;
+  --success: 22 163 74;
+  --warning: 202 138 4;
+  --danger: 220 38 38;
+}
+
+.dark {
+  --bg: 2 6 23;
+  --surface: 15 23 42;
+  --surface-2: 30 41 59;
+  --border: 51 65 85;
+  --text: 226 232 240;
+  --muted: 148 163 184;
+  --primary: 96 165 250;
+  --primary-fg: 2 6 23;
+  --accent: 45 212 191;
+  --success: 74 222 128;
+  --warning: 250 204 21;
+  --danger: 248 113 113;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: rgb(var(--bg));
+  color: rgb(var(--text));
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Reduce motion for users who ask for it (accessibility). */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
+
+/* Rendered-Markdown lesson content ("prose") styling. */
+.lesson-content h2 { font-size: 1.35rem; font-weight: 700; margin: 1.5rem 0 0.5rem; }
+.lesson-content h3 { font-size: 1.1rem; font-weight: 600; margin: 1.25rem 0 0.5rem; }
+.lesson-content h4 { font-size: 1rem; font-weight: 600; margin: 1rem 0 0.35rem; }
+.lesson-content p { margin: 0.75rem 0; line-height: 1.7; }
+.lesson-content ul { list-style: disc; margin: 0.5rem 0 0.75rem 1.5rem; }
+.lesson-content ol { list-style: decimal; margin: 0.5rem 0 0.75rem 1.5rem; }
+.lesson-content li { margin: 0.3rem 0; line-height: 1.6; }
+.lesson-content a { color: rgb(var(--primary)); text-decoration: underline; }
+.lesson-content strong { font-weight: 700; }
+.lesson-content code { background: rgb(var(--surface-2)); padding: 0.1rem 0.35rem; border-radius: 0.25rem; font-size: 0.9em; }
+.lesson-content blockquote {
+  border-left: 4px solid rgb(var(--warning));
+  background: rgb(var(--surface-2));
+  padding: 0.5rem 1rem; margin: 1rem 0; border-radius: 0 0.35rem 0.35rem 0;
+}
+.lesson-content hr { border: none; border-top: 1px solid rgb(var(--border)); margin: 1.5rem 0; }
+
+/* Focus visibility for keyboard users. */
+a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-visible {
+  outline: 2px solid rgb(var(--primary));
+  outline-offset: 2px;
+}
