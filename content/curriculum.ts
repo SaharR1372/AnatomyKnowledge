@@ -26,9 +26,15 @@ export const learningPaths: LearningPathSeed[] = [
         description: "The bones, joints, and muscles of the shoulder — your first complete body region.",
       },
       {
+        slug: "the-chest",
+        title: "The Chest",
+        order: 3,
+        description: "The rib cage, the pectoralis major and its pushing role, and the muscles of breathing.",
+      },
+      {
         slug: "training-safely",
         title: "Training Safely",
-        order: 3,
+        order: 4,
         description: "General safety principles and understanding a personal trainer's scope of practice.",
       },
     ],

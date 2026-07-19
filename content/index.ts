@@ -1,17 +1,28 @@
 // Single import surface for all seed content. The seeder and the content
 // validator both read from here. See docs/content-system.md.
+//
+// Each body region is authored as a self-contained module and aggregated below,
+// so adding a region is: create content/regions/<name>.ts, add its module to
+// curriculum.ts, then wire its exports in here.
 
 export { sources } from "./sources";
 export { vocabulary } from "./vocabulary";
 export { visualAssets } from "./visual-assets";
-export { shoulderRegion, movements } from "./anatomy";
-export { exercises } from "./exercises";
-export { lessons } from "./lessons";
 export { learningPaths, certifications } from "./curriculum";
-export { questions } from "./quizzes";
 
-import { shoulderRegion } from "./anatomy";
-import type { BodyRegionSeed } from "./types";
+import type { BodyRegionSeed, MovementSeed, ExerciseSeed, LessonSeed, QuestionSeed } from "./types";
 
-// All body regions authored so far. The MVP ships one complete region (spec §20).
-export const bodyRegions: BodyRegionSeed[] = [shoulderRegion];
+// Shoulder region (the original seed slice lives in anatomy.ts / the flat files).
+import { shoulderRegion, movements as shoulderMovements } from "./anatomy";
+import { exercises as shoulderExercises } from "./exercises";
+import { lessons as shoulderLessons } from "./lessons";
+import { questions as shoulderQuestions } from "./quizzes";
+
+// Additional regions (self-contained modules).
+import { chestRegion, chestMovements, chestExercises, chestLessons, chestQuestions } from "./regions/chest";
+
+export const bodyRegions: BodyRegionSeed[] = [shoulderRegion, chestRegion];
+export const movements: MovementSeed[] = [...shoulderMovements, ...chestMovements];
+export const exercises: ExerciseSeed[] = [...shoulderExercises, ...chestExercises];
+export const lessons: LessonSeed[] = [...shoulderLessons, ...chestLessons];
+export const questions: QuestionSeed[] = [...shoulderQuestions, ...chestQuestions];

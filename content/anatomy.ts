@@ -257,37 +257,6 @@ export const shoulderRegion: BodyRegionSeed = {
       ],
     },
     {
-      slug: "pectoralis-major",
-      commonName: "Pectoralis major",
-      scientificName: "Pectoralis major",
-      pronunciation: "pek-tor-AL-iss MAY-jor",
-      locationSimple: "The large fan-shaped muscle of the front of the chest.",
-      origin: "Clavicle, sternum, and cartilage of the upper ribs.",
-      insertion: "Greater tubercle / intertubercular groove of the humerus.",
-      actions: "Flexes, adducts, and internally rotates the arm at the shoulder.",
-      jointsCrossed: "Glenohumeral joint",
-      movementPlane: "multiple",
-      innervation: "Medial and lateral pectoral nerves (C5–T1)",
-      functionDaily: "Pushing movements and drawing the arm across the body — pushing a door, a shopping cart.",
-      functionExercise: "Prime mover in push-ups, bench press, and chest press; assists in dips.",
-      beginnerExplanation:
-        "The main chest muscle. It powers pushing movements and pulls the arm toward and across the body.",
-      advancedExplanation:
-        "Its clavicular and sternocostal heads have different lines of pull, so incline vs. flat pressing emphasizes them differently. It is a strong internal rotator and horizontal adductor of the shoulder.",
-      commonlyConfused: "Confused with the deeper pectoralis minor, which moves the scapula rather than the arm.",
-      misconceptions: "Pushing exercises are compound: the chest works with the deltoids and triceps, not alone.",
-      safetyInfo: "Very heavy pressing with a fully stretched shoulder can strain the pec tendon; control range and load.",
-      status: "source_checked",
-      citations: [
-        {
-          sourceSlug: OPENSTAX,
-          claim:
-            "The pectoralis major flexes, adducts, and medially rotates the humerus and is a primary mover of arm flexion.",
-          locator: "Ch. 11.5 Muscles of the Pectoral Girdle and Upper Limbs",
-        },
-      ],
-    },
-    {
       slug: "trapezius",
       commonName: "Trapezius",
       scientificName: "Trapezius",

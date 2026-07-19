@@ -69,7 +69,8 @@ chapters 8-11 cover the musculoskeletal system; MedlinePlus for plain-language).
 
 Region checklist (request.md §5):
 - [x] Shoulders (seed vertical slice — in content/anatomy.ts)
-- [ ] Chest
+- [x] Chest (content/regions/chest.ts — pec major moved here from shoulder; pec minor, serratus, diaphragm, intercostals; 3 exercises, 3 lessons, 6 quizzes)
+- [ ] Upper back  <-- NEXT: trapezius (move from shoulder?), latissimus dorsi, rhomboids, levator scapulae, erector spinae (upper); rows, pull-ups, face pulls
 - [ ] Upper back
 - [ ] Lower back
 - [ ] Head and neck
