@@ -14,11 +14,11 @@
 The app runs (`npm run dev`), `npm run build` is green, and **18 tests pass**. Nothing is half-finished
 — every commit is clean.
 
-**Current content:** 7 of 16 body regions complete at full depth →
-`sources=9 vocab=14 assets=9 regions=7 muscles=28 movements=24 exercises=22 lessons=20 questions=44`.
-Regions done: **Shoulder, Chest, Upper Back, Lower Back, Core & Abdominal, Pelvis & Hips, Glutes** (each with a "How to say it" pronunciation guide + audio).
+**Current content:** 8 of 16 body regions complete at full depth →
+`sources=9 vocab=14 assets=10 regions=8 muscles=32 movements=26 exercises=26 lessons=22 questions=49`.
+Regions done: **Shoulder, Chest, Upper Back, Lower Back, Core & Abdominal, Pelvis & Hips, Glutes, Thighs** (each with a "How to say it" pronunciation guide + audio).
 
-**THE NEXT TASK:** build the **Thighs** region (then Knees, then the rest — order below). The user has
+**THE NEXT TASK:** build the **Knees** region — a JOINT-type region (then Lower Legs, then the rest — order below). The user has
 asked to proceed through ALL remaining regions automatically, back-to-back, without pausing to ask for
 confirmation between them — just keep going region by region using the recipe below until all 16 are done
 (or the session ends, in which case a fresh session should read this file and resume automatically).
@@ -113,8 +113,9 @@ Region checklist (request.md §5):
 - [x] Core & abdominal (content/regions/core.ts — rectus abdominis, external/internal oblique, transversus abdominis; plank, dead bug, pallof press; anti-rotation/anti-extension framing; 2 lessons, 5 quizzes)
 - [x] Pelvis & hips (content/regions/pelvis-hips.ts — iliopsoas, tensor fasciae latae, piriformis; hip bone, hip joint, sacroiliac joint; hip flexor march, band hip abduction, hip external-rotation mobility; 2 lessons, 5 quizzes)
 - [x] Glutes (content/regions/glutes.ts — gluteus maximus/medius/minimus; femur bone introduced here; barbell hip thrust, glute bridge, side-lying hip abduction; 2 lessons, 5 quizzes)
-Remaining (build in this order — 9 left):
-- [ ] Thighs  ← **NEXT**: quadriceps, hamstrings, adductors, sartorius; squat, lunge, RDL, leg curl/extension
+- [x] Thighs (content/regions/thighs.ts — quadriceps femoris, hamstrings, adductors, sartorius; tibia bone + knee-joint introduced here; back squat, walking lunge, leg extension, leg curl; 2 lessons, 5 quizzes)
+Remaining (build in this order — 8 left):
+- [ ] Knees (JOINT region)  ← **NEXT**: patella + patellofemoral joint, ACL/MCL/meniscus, common injuries, safety; muscles live in Thighs (reuse "knee-joint" jointSlug from thighs.ts, don't redefine it)
 - [ ] Pelvis & hips (iliopsoas/hip flexors, hip joint; hip-flexor & mobility work)
 - [ ] Glutes (gluteus maximus/medius/minimus; hip thrust, glute bridge, abduction)
 - [ ] Thighs (quadriceps, hamstrings, adductors, sartorius; squat, lunge, RDL, leg curl/extension)
@@ -130,6 +131,15 @@ Remaining (build in this order — 9 left):
 NOTE for JOINT/STRUCTURE regions (knees, ankles, elbows, spine): fewer UNIQUE muscles — cover the joint
 structure, ligaments, common injuries, and safety, and reference muscles that live in adjacent regions.
 Every region MUST include: `assetSlugs` (an original SVG) + a `pronunciations` list (guide + audio auto-render).
+Bone/joint/muscle slugs are GLOBALLY UNIQUE (Prisma `@unique`) — don't redefine a slug that already exists
+in another region. Two established patterns: (1) an exercise can reference a jointSlug/muscleSlug owned by
+a DIFFERENT region (e.g. upper-back.ts's row exercise reuses shoulder.ts's "glenohumeral-joint"; thighs.ts's
+squat reuses pelvis-hips.ts's "hip-joint") — just don't redefine the joint/bone itself; (2) if a region needs
+its OWN region-specific display entry for a shared structure, give it a new, distinctly-named slug (e.g.
+upper-back.ts's own "scapulothoracic-upper-back" joint, separate from shoulder.ts's "scapulothoracic-articulation").
+The knee joint ("knee-joint", tibiofemoral) was already introduced in thighs.ts because squat/lunge/leg
+extension/leg curl needed it — the Knees region should reuse that slug and add its own NEW joint entry
+(e.g. "patellofemoral-joint") plus a NEW "patella" bone for the kneecap-specific detail, not redefine knee-joint.
 Note: some muscles act across regions (e.g. pectoralis major = chest, was seeded under shoulder;
 move to its canonical region when building that region). Muscle slug stays stable so exercise/quiz
 links keep working; only `bodyRegionId` changes.
@@ -157,5 +167,11 @@ links keep working; only `bodyRegionId` changes.
   2 lessons, 5 quiz questions, pronunciation guide, original SVG. All checks green. Then built **Glutes**
   (content/regions/glutes.ts): gluteus maximus/medius/minimus (femur bone introduced here); barbell hip
   thrust, glute bridge, side-lying hip abduction; 2 lessons, 5 quiz questions, pronunciation guide,
-  original SVG. All checks green. Continuing sequentially, fully autonomously, through the remaining 9
-  regions — no per-region confirmation needed. Next: Thighs.
+  original SVG. All checks green. Then built **Thighs** (content/regions/thighs.ts): quadriceps femoris,
+  hamstrings, adductors, sartorius (tibia bone + "knee-joint" tibiofemoral joint introduced here since
+  the exercises needed it); back squat, walking lunge, leg extension, leg curl; 2 lessons, 5 quiz
+  questions, pronunciation guide, original SVG. All checks green. Documented the global-slug-uniqueness
+  pattern (joint/bone/muscle slugs are Prisma-unique; reuse across regions via jointSlug/muscleSlug refs,
+  or add a new distinctly-named slug for a region's own display entry) in the NOTE below so future
+  JOINT-type regions (Knees, Ankles, Elbows, Spine) get it right. Continuing sequentially, fully
+  autonomously, through the remaining 8 regions — no per-region confirmation needed. Next: Knees.

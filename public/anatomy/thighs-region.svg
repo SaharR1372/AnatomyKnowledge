@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 320" role="img" aria-label="Simplified front view of the thigh: quadriceps and adductors">
+  <title>Thighs — quadriceps femoris and adductors (simplified)</title>
+  <desc>Front view of the right thigh showing the four-part quadriceps femoris covering the front of the femur down to the knee, and the adductor muscle group along the inner thigh.</desc>
+  <style>
+    .label { font: 600 12px system-ui, sans-serif; fill: #0f172a; }
+    .muscle { opacity: 0.45; stroke-width: 1.5; }
+    .bone { fill: #cbd5e1; stroke: #475569; stroke-width: 1; }
+    .quad { fill: #ef4444; stroke: #b91c1c; }
+    .add { fill: #3b82f6; stroke: #1d4ed8; }
+    .lead { stroke: #475569; stroke-width: 1; }
+  </style>
+  <!-- femur shaft -->
+  <rect class="bone" x="170" y="50" width="20" height="200" rx="6" />
+  <!-- quadriceps (front, fan shape) -->
+  <path class="muscle quad" d="M150,70 Q120,160 135,250 L185,255 L185,70 Z" />
+  <!-- adductors (inner thigh) -->
+  <path class="muscle add" d="M190,90 Q220,160 205,240 L188,255 L188,90 Z" />
+  <line class="lead" x1="140" y1="150" x2="50" y2="140" />
+  <text class="label" x="4" y="138">Quadriceps femoris</text>
+  <line class="lead" x1="205" y1="180" x2="290" y2="170" />
+  <text class="label" x="294" y="174">Adductors</text>
+  <line class="lead" x1="180" y1="255" x2="180" y2="280" />
+  <text class="label" x="150" y="296">Knee joint</text>
+</svg>

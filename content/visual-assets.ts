@@ -154,4 +154,20 @@ export const visualAssets: VisualAssetSeed[] = [
       "A beginner-level schematic of the buttock's two most prominent muscles: gluteus maximus and gluteus medius.",
     isOriginal: true,
   },
+  {
+    slug: "thighs-region",
+    title: "Thighs — quadriceps femoris and adductors (simplified)",
+    filePath: "/anatomy/thighs-region.svg",
+    creator: "Anatomy Learning Platform (original)",
+    license: "CC0-1.0 (public domain dedication)",
+    attributionText: "Original diagram created for this project.",
+    modificationAllowed: true,
+    commercialUseAllowed: true,
+    licenseCheckedDate: "2026-07-25",
+    altText:
+      "Simplified front view of the right thigh showing the four-part quadriceps femoris covering the front of the femur down to the knee, and the adductor muscle group along the inner thigh.",
+    description:
+      "A beginner-level schematic of the thigh's front (quadriceps) and inner (adductor) muscle groups.",
+    isOriginal: true,
+  },
 ];

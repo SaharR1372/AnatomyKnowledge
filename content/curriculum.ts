@@ -62,9 +62,15 @@ export const learningPaths: LearningPathSeed[] = [
         description: "The powerful hip extensors and pelvic stabilizers of the buttock.",
       },
       {
+        slug: "the-thighs",
+        title: "The Thighs",
+        order: 9,
+        description: "The quadriceps, hamstrings, adductors, and sartorius — the powerhouse muscles between hip and knee.",
+      },
+      {
         slug: "training-safely",
         title: "Training Safely",
-        order: 9,
+        order: 10,
         description: "General safety principles and understanding a personal trainer's scope of practice.",
       },
     ],

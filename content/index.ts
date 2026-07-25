@@ -25,9 +25,10 @@ import { lowerBackRegion, lowerBackMovements, lowerBackExercises, lowerBackLesso
 import { coreRegion, coreMovements, coreExercises, coreLessons, coreQuestions } from "./regions/core";
 import { pelvisHipsRegion, pelvisHipsMovements, pelvisHipsExercises, pelvisHipsLessons, pelvisHipsQuestions } from "./regions/pelvis-hips";
 import { glutesRegion, glutesMovements, glutesExercises, glutesLessons, glutesQuestions } from "./regions/glutes";
+import { thighsRegion, thighsMovements, thighsExercises, thighsLessons, thighsQuestions } from "./regions/thighs";
 
-export const bodyRegions: BodyRegionSeed[] = [shoulderRegion, chestRegion, upperBackRegion, lowerBackRegion, coreRegion, pelvisHipsRegion, glutesRegion];
-export const movements: MovementSeed[] = [...shoulderMovements, ...chestMovements, ...upperBackMovements, ...lowerBackMovements, ...coreMovements, ...pelvisHipsMovements, ...glutesMovements];
-export const exercises: ExerciseSeed[] = [...shoulderExercises, ...chestExercises, ...upperBackExercises, ...lowerBackExercises, ...coreExercises, ...pelvisHipsExercises, ...glutesExercises];
-export const lessons: LessonSeed[] = [...shoulderLessons, ...chestLessons, ...upperBackLessons, ...lowerBackLessons, ...coreLessons, ...pelvisHipsLessons, ...glutesLessons];
-export const questions: QuestionSeed[] = [...shoulderQuestions, ...chestQuestions, ...upperBackQuestions, ...lowerBackQuestions, ...coreQuestions, ...pelvisHipsQuestions, ...glutesQuestions];
+export const bodyRegions: BodyRegionSeed[] = [shoulderRegion, chestRegion, upperBackRegion, lowerBackRegion, coreRegion, pelvisHipsRegion, glutesRegion, thighsRegion];
+export const movements: MovementSeed[] = [...shoulderMovements, ...chestMovements, ...upperBackMovements, ...lowerBackMovements, ...coreMovements, ...pelvisHipsMovements, ...glutesMovements, ...thighsMovements];
+export const exercises: ExerciseSeed[] = [...shoulderExercises, ...chestExercises, ...upperBackExercises, ...lowerBackExercises, ...coreExercises, ...pelvisHipsExercises, ...glutesExercises, ...thighsExercises];
+export const lessons: LessonSeed[] = [...shoulderLessons, ...chestLessons, ...upperBackLessons, ...lowerBackLessons, ...coreLessons, ...pelvisHipsLessons, ...glutesLessons, ...thighsLessons];
+export const questions: QuestionSeed[] = [...shoulderQuestions, ...chestQuestions, ...upperBackQuestions, ...lowerBackQuestions, ...coreQuestions, ...pelvisHipsQuestions, ...glutesQuestions, ...thighsQuestions];
