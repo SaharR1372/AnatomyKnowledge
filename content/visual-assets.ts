@@ -186,4 +186,20 @@ export const visualAssets: VisualAssetSeed[] = [
       "A beginner-level schematic of the knee's bony structure: femur, patella, and tibia.",
     isOriginal: true,
   },
+  {
+    slug: "lower-legs-region",
+    title: "Lower leg — gastrocnemius, soleus, and tibialis anterior (simplified)",
+    filePath: "/anatomy/lower-legs-region.svg",
+    creator: "Anatomy Learning Platform (original)",
+    license: "CC0-1.0 (public domain dedication)",
+    attributionText: "Original diagram created for this project.",
+    modificationAllowed: true,
+    commercialUseAllowed: true,
+    licenseCheckedDate: "2026-07-25",
+    altText:
+      "Simplified side view of the lower leg showing the rounded gastrocnemius and deeper soleus forming the calf at the back, and the tibialis anterior running along the front of the shin down to the foot.",
+    description:
+      "A beginner-level schematic of the lower leg's calf (gastrocnemius, soleus) and shin (tibialis anterior) muscles.",
+    isOriginal: true,
+  },
 ];

@@ -74,9 +74,15 @@ export const learningPaths: LearningPathSeed[] = [
         description: "The body's largest hinge joint — structure, ligaments, common injuries, and safe alignment.",
       },
       {
+        slug: "the-lower-legs",
+        title: "The Lower Legs",
+        order: 11,
+        description: "The calf, shin, and outer-leg muscles that move the ankle and absorb impact with every step.",
+      },
+      {
         slug: "training-safely",
         title: "Training Safely",
-        order: 11,
+        order: 12,
         description: "General safety principles and understanding a personal trainer's scope of practice.",
       },
     ],

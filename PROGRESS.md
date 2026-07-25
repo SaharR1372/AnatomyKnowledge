@@ -14,11 +14,11 @@
 The app runs (`npm run dev`), `npm run build` is green, and **18 tests pass**. Nothing is half-finished
 — every commit is clean.
 
-**Current content:** 9 of 16 body regions complete at full depth →
-`sources=9 vocab=14 assets=11 regions=9 muscles=33 movements=26 exercises=29 lessons=24 questions=54`.
-Regions done: **Shoulder, Chest, Upper Back, Lower Back, Core & Abdominal, Pelvis & Hips, Glutes, Thighs, Knees** (each with a "How to say it" pronunciation guide + audio).
+**Current content:** 10 of 16 body regions complete at full depth →
+`sources=9 vocab=14 assets=12 regions=10 muscles=37 movements=29 exercises=32 lessons=26 questions=59`.
+Regions done: **Shoulder, Chest, Upper Back, Lower Back, Core & Abdominal, Pelvis & Hips, Glutes, Thighs, Knees, Lower Legs** (each with a "How to say it" pronunciation guide + audio).
 
-**THE NEXT TASK:** build the **Lower Legs** region (then Ankles & Feet, then the rest — order below). The user has
+**THE NEXT TASK:** build the **Ankles & Feet** region — a JOINT-type region (then Arms, then the rest — order below). The user has
 asked to proceed through ALL remaining regions automatically, back-to-back, without pausing to ask for
 confirmation between them — just keep going region by region using the recipe below until all 16 are done
 (or the session ends, in which case a fresh session should read this file and resume automatically).
@@ -115,8 +115,9 @@ Region checklist (request.md §5):
 - [x] Glutes (content/regions/glutes.ts — gluteus maximus/medius/minimus; femur bone introduced here; barbell hip thrust, glute bridge, side-lying hip abduction; 2 lessons, 5 quizzes)
 - [x] Thighs (content/regions/thighs.ts — quadriceps femoris, hamstrings, adductors, sartorius; tibia bone + knee-joint introduced here; back squat, walking lunge, leg extension, leg curl; 2 lessons, 5 quizzes)
 - [x] Knees — JOINT region (content/regions/knees.ts — patella bone + patellofemoral-joint, ACL/PCL/MCL/LCL + menisci covered in text/safety [no Ligament model in schema]; popliteus muscle; wall sit, banded terminal knee extension, lateral step-down; 2 lessons, 5 quizzes)
-Remaining (build in this order — 7 left):
-- [ ] Lower legs  ← **NEXT**: gastrocnemius, soleus, tibialis anterior, fibularis/peroneals; calf raise, toe raise
+- [x] Lower legs (content/regions/lower-legs.ts — gastrocnemius, soleus, tibialis anterior, fibularis longus; fibula bone + ankle-joint introduced here; standing calf raise, seated calf raise, tibialis toe raise; 2 lessons, 5 quizzes)
+Remaining (build in this order — 6 left):
+- [ ] Ankles & feet (JOINT region)  ← **NEXT**: subtalar joint, ligaments (e.g. ATFL/sprains), intrinsic foot muscles, balance/mobility; reuse "ankle-joint" jointSlug from lower-legs.ts, don't redefine it
 - [ ] Pelvis & hips (iliopsoas/hip flexors, hip joint; hip-flexor & mobility work)
 - [ ] Glutes (gluteus maximus/medius/minimus; hip thrust, glute bridge, abduction)
 - [ ] Thighs (quadriceps, hamstrings, adductors, sartorius; squat, lunge, RDL, leg curl/extension)
@@ -179,5 +180,10 @@ links keep working; only `bodyRegionId` changes.
   thighs.ts rather than redefining it); ACL/PCL/MCL/LCL and menisci covered in descriptive text/safety
   notes (the schema has no separate Ligament model); popliteus (a small knee-specific muscle with no
   natural home in Thighs); wall sit, banded terminal knee extension, lateral step-down; 2 lessons, 5 quiz
-  questions, pronunciation guide, original SVG. All checks green. Continuing sequentially, fully
-  autonomously, through the remaining 7 regions — no per-region confirmation needed. Next: Lower Legs.
+  questions, pronunciation guide, original SVG. All checks green. Then built **Lower Legs**
+  (content/regions/lower-legs.ts): fibula bone + "ankle-joint" (talocrural, introduced here since calf-
+  raise/toe-raise exercises needed it); gastrocnemius, soleus, tibialis anterior, fibularis longus;
+  standing calf raise, seated calf raise, tibialis toe raise (straight-knee-vs-bent-knee teaching angle);
+  2 lessons, 5 quiz questions, pronunciation guide, original SVG. All checks green. Continuing
+  sequentially, fully autonomously, through the remaining 6 regions — no per-region confirmation needed.
+  Next: Ankles & Feet.
