@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 320" role="img" aria-label="Simplified side view of the upper arm: biceps brachii and triceps brachii">
+  <title>Arms — biceps brachii and triceps brachii (simplified)</title>
+  <desc>Side view of the upper arm showing the two-headed biceps brachii on the front of the humerus and the three-headed triceps brachii covering the back of the humerus, down to the elbow.</desc>
+  <style>
+    .label { font: 600 12px system-ui, sans-serif; fill: #0f172a; }
+    .muscle { opacity: 0.45; stroke-width: 1.5; }
+    .bone { fill: #cbd5e1; stroke: #475569; stroke-width: 1; }
+    .biceps { fill: #3b82f6; stroke: #1d4ed8; }
+    .triceps { fill: #ef4444; stroke: #b91c1c; }
+    .lead { stroke: #475569; stroke-width: 1; }
+  </style>
+  <!-- humerus shaft -->
+  <rect class="bone" x="168" y="50" width="20" height="180" rx="6" />
+  <!-- biceps brachii (front) -->
+  <path class="muscle biceps" d="M150,70 Q125,150 145,225 L166,225 L166,70 Z" />
+  <!-- triceps brachii (back) -->
+  <path class="muscle triceps" d="M190,70 Q225,150 200,225 L190,225 L190,70 Z" />
+  <line class="lead" x1="140" y1="150" x2="55" y2="140" />
+  <text class="label" x="4" y="138">Biceps brachii</text>
+  <line class="lead" x1="210" y1="150" x2="290" y2="160" />
+  <text class="label" x="228" y="164">Triceps brachii</text>
+  <line class="lead" x1="180" y1="230" x2="180" y2="260" />
+  <text class="label" x="150" y="276">Elbow joint</text>
+</svg>

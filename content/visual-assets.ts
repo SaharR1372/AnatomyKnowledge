@@ -218,4 +218,20 @@ export const visualAssets: VisualAssetSeed[] = [
       "A beginner-level schematic of the ankle and foot's key bones: talus and calcaneus, forming the subtalar joint.",
     isOriginal: true,
   },
+  {
+    slug: "arms-region",
+    title: "Arms — biceps brachii and triceps brachii (simplified)",
+    filePath: "/anatomy/arms-region.svg",
+    creator: "Anatomy Learning Platform (original)",
+    license: "CC0-1.0 (public domain dedication)",
+    attributionText: "Original diagram created for this project.",
+    modificationAllowed: true,
+    commercialUseAllowed: true,
+    licenseCheckedDate: "2026-07-25",
+    altText:
+      "Simplified side view of the upper arm showing the two-headed biceps brachii on the front of the humerus and the three-headed triceps brachii covering the back of the humerus, down to the elbow.",
+    description:
+      "A beginner-level schematic of the upper arm's opposing muscle pair: biceps brachii and triceps brachii.",
+    isOriginal: true,
+  },
 ];

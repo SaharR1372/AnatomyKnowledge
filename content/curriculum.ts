@@ -86,9 +86,15 @@ export const learningPaths: LearningPathSeed[] = [
         description: "The body's base of support — the subtalar joint, the foot's arches, and balance.",
       },
       {
+        slug: "the-arms",
+        title: "The Arms",
+        order: 13,
+        description: "The biceps and triceps opposing pair, plus their quieter helpers brachialis and coracobrachialis.",
+      },
+      {
         slug: "training-safely",
         title: "Training Safely",
-        order: 13,
+        order: 14,
         description: "General safety principles and understanding a personal trainer's scope of practice.",
       },
     ],
