@@ -106,4 +106,20 @@ export const visualAssets: VisualAssetSeed[] = [
       "A beginner-level schematic of the lower back's bony spine and its two main muscle groups: the erector spinae and quadratus lumborum.",
     isOriginal: true,
   },
+  {
+    slug: "core-region",
+    title: "Core region — rectus abdominis, obliques, and transversus abdominis (simplified)",
+    filePath: "/anatomy/core-region.svg",
+    creator: "Anatomy Learning Platform (original)",
+    license: "CC0-1.0 (public domain dedication)",
+    attributionText: "Original diagram created for this project.",
+    modificationAllowed: true,
+    commercialUseAllowed: true,
+    licenseCheckedDate: "2026-07-25",
+    altText:
+      "Simplified front view of the abdomen showing the segmented rectus abdominis running down the midline, the diagonal external oblique on each side, and the transversus abdominis wrapping around the waist beneath.",
+    description:
+      "A beginner-level schematic of the core's abdominal muscles: rectus abdominis, external oblique, and transversus abdominis.",
+    isOriginal: true,
+  },
 ];

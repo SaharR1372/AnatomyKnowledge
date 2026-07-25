@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 320" role="img" aria-label="Simplified front view of the core: rectus abdominis, obliques, and transversus abdominis">
+  <title>Core region — rectus abdominis, obliques, and transversus abdominis (simplified)</title>
+  <desc>Front view of the abdomen showing the segmented rectus abdominis running down the midline, the diagonal external oblique on each side, and the transversus abdominis wrapping around the waist beneath.</desc>
+  <style>
+    .label { font: 600 12px system-ui, sans-serif; fill: #0f172a; }
+    .muscle { opacity: 0.4; stroke-width: 1.5; }
+    .rect { fill: #ef4444; stroke: #b91c1c; }
+    .obl { fill: #f59e0b; stroke: #b45309; }
+    .trans { fill: #3b82f6; stroke: #1d4ed8; }
+    .lead { stroke: #475569; stroke-width: 1; }
+    .midline { stroke: #475569; stroke-width: 2; stroke-dasharray: 3 3; }
+  </style>
+  <!-- transversus abdominis (wrapping waist band, drawn first/behind) -->
+  <path class="muscle trans" d="M90,150 Q180,135 270,150 L270,260 Q180,275 90,260 Z" />
+  <!-- external obliques -->
+  <path class="muscle obl" d="M95,110 L140,120 L120,250 L85,240 Z" />
+  <path class="muscle obl" d="M265,110 L220,120 L240,250 L275,240 Z" />
+  <!-- rectus abdominis segments -->
+  <g class="muscle rect">
+    <rect x="160" y="90" width="40" height="35" rx="4" />
+    <rect x="160" y="130" width="40" height="35" rx="4" />
+    <rect x="160" y="170" width="40" height="35" rx="4" />
+    <rect x="160" y="210" width="40" height="35" rx="4" />
+  </g>
+  <line class="midline" x1="180" y1="85" x2="180" y2="250" />
+  <line class="lead" x1="200" y1="105" x2="280" y2="80" />
+  <text class="label" x="200" y="76">Rectus abdominis</text>
+  <line class="lead" x1="110" y1="150" x2="30" y2="140" />
+  <text class="label" x="4" y="138">External oblique</text>
+  <line class="lead" x1="100" y1="220" x2="30" y2="235" />
+  <text class="label" x="2" y="239">Transversus abdominis</text>
+</svg>

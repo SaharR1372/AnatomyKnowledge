@@ -44,9 +44,15 @@ export const learningPaths: LearningPathSeed[] = [
         description: "The lumbar spine and its deep muscles, the hip hinge, and safe lifting mechanics.",
       },
       {
+        slug: "the-core",
+        title: "The Core & Abdominal Region",
+        order: 6,
+        description: "The abdominal muscles that flex, rotate, and — most importantly — brace and stabilize the trunk.",
+      },
+      {
         slug: "training-safely",
         title: "Training Safely",
-        order: 6,
+        order: 7,
         description: "General safety principles and understanding a personal trainer's scope of practice.",
       },
     ],
