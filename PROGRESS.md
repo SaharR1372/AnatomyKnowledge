@@ -14,11 +14,11 @@
 The app runs (`npm run dev`), `npm run build` is green, and **18 tests pass**. Nothing is half-finished
 — every commit is clean.
 
-**Current content:** 10 of 16 body regions complete at full depth →
-`sources=9 vocab=14 assets=12 regions=10 muscles=37 movements=29 exercises=32 lessons=26 questions=59`.
-Regions done: **Shoulder, Chest, Upper Back, Lower Back, Core & Abdominal, Pelvis & Hips, Glutes, Thighs, Knees, Lower Legs** (each with a "How to say it" pronunciation guide + audio).
+**Current content:** 11 of 16 body regions complete at full depth →
+`sources=9 vocab=14 assets=13 regions=11 muscles=38 movements=30 exercises=35 lessons=28 questions=64`.
+Regions done: **Shoulder, Chest, Upper Back, Lower Back, Core & Abdominal, Pelvis & Hips, Glutes, Thighs, Knees, Lower Legs, Ankles & Feet** (each with a "How to say it" pronunciation guide + audio).
 
-**THE NEXT TASK:** build the **Ankles & Feet** region — a JOINT-type region (then Arms, then the rest — order below). The user has
+**THE NEXT TASK:** build the **Arms** region (then Elbows, then the rest — order below). The user has
 asked to proceed through ALL remaining regions automatically, back-to-back, without pausing to ask for
 confirmation between them — just keep going region by region using the recipe below until all 16 are done
 (or the session ends, in which case a fresh session should read this file and resume automatically).
@@ -116,8 +116,9 @@ Region checklist (request.md §5):
 - [x] Thighs (content/regions/thighs.ts — quadriceps femoris, hamstrings, adductors, sartorius; tibia bone + knee-joint introduced here; back squat, walking lunge, leg extension, leg curl; 2 lessons, 5 quizzes)
 - [x] Knees — JOINT region (content/regions/knees.ts — patella bone + patellofemoral-joint, ACL/PCL/MCL/LCL + menisci covered in text/safety [no Ligament model in schema]; popliteus muscle; wall sit, banded terminal knee extension, lateral step-down; 2 lessons, 5 quizzes)
 - [x] Lower legs (content/regions/lower-legs.ts — gastrocnemius, soleus, tibialis anterior, fibularis longus; fibula bone + ankle-joint introduced here; standing calf raise, seated calf raise, tibialis toe raise; 2 lessons, 5 quizzes)
-Remaining (build in this order — 6 left):
-- [ ] Ankles & feet (JOINT region)  ← **NEXT**: subtalar joint, ligaments (e.g. ATFL/sprains), intrinsic foot muscles, balance/mobility; reuse "ankle-joint" jointSlug from lower-legs.ts, don't redefine it
+- [x] Ankles & feet — JOINT region (content/regions/ankles-feet.ts — talus + calcaneus bones, subtalar joint [reuses "ankle-joint" from lower-legs.ts]; intrinsic foot muscles grouped entry; single-leg balance hold, short foot exercise, banded ankle eversion; 2 lessons, 5 quizzes)
+Remaining (build in this order — 5 left):
+- [ ] Arms  ← **NEXT**: biceps brachii, triceps brachii, brachialis, coracobrachialis; curls, extensions
 - [ ] Pelvis & hips (iliopsoas/hip flexors, hip joint; hip-flexor & mobility work)
 - [ ] Glutes (gluteus maximus/medius/minimus; hip thrust, glute bridge, abduction)
 - [ ] Thighs (quadriceps, hamstrings, adductors, sartorius; squat, lunge, RDL, leg curl/extension)
@@ -184,6 +185,11 @@ links keep working; only `bodyRegionId` changes.
   (content/regions/lower-legs.ts): fibula bone + "ankle-joint" (talocrural, introduced here since calf-
   raise/toe-raise exercises needed it); gastrocnemius, soleus, tibialis anterior, fibularis longus;
   standing calf raise, seated calf raise, tibialis toe raise (straight-knee-vs-bent-knee teaching angle);
-  2 lessons, 5 quiz questions, pronunciation guide, original SVG. All checks green. Continuing
-  sequentially, fully autonomously, through the remaining 6 regions — no per-region confirmation needed.
-  Next: Ankles & Feet.
+  2 lessons, 5 quiz questions, pronunciation guide, original SVG. All checks green. Then built **Ankles &
+  Feet** (content/regions/ankles-feet.ts), the second JOINT-type region: talus + calcaneus bones,
+  subtalar joint (reuses "ankle-joint" from lower-legs.ts rather than redefining); intrinsic foot muscles
+  (grouped entry, arch/balance role); single-leg balance hold, short foot exercise, banded ankle eversion
+  (ties back to fibularis longus from Lower Legs); 2 lessons, 5 quiz questions, pronunciation guide,
+  original SVG. All checks green. All lower-body regions are now done (Lower Back through Ankles & Feet).
+  Continuing sequentially into the upper-limb regions, fully autonomously — no per-region confirmation
+  needed. Next: Arms.

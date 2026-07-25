@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 320" role="img" aria-label="Simplified side view of the ankle and foot: talus, calcaneus, and subtalar joint">
+  <title>Ankle &amp; foot — talus, calcaneus, and subtalar joint (simplified)</title>
+  <desc>Side view of the ankle and foot showing the talus sitting beneath the tibia and fibula, the calcaneus (heel bone) below it forming the subtalar joint, and the arch of the foot extending forward to the toes.</desc>
+  <style>
+    .label { font: 600 12px system-ui, sans-serif; fill: #0f172a; }
+    .bone { fill: #cbd5e1; stroke: #475569; stroke-width: 1.5; }
+    .talus { fill: #3b82f6; stroke: #1d4ed8; opacity: 0.6; }
+    .calc { fill: #f59e0b; stroke: #b45309; opacity: 0.6; }
+    .lead { stroke: #475569; stroke-width: 1; }
+  </style>
+  <!-- tibia/fibula lower shaft -->
+  <rect class="bone" x="165" y="40" width="24" height="90" rx="6" />
+  <!-- talus -->
+  <ellipse class="talus" cx="177" cy="150" rx="26" ry="18" />
+  <!-- calcaneus (heel) -->
+  <path class="calc" d="M140,160 Q120,175 130,205 L190,210 L190,165 Z" />
+  <!-- midfoot/forefoot arch -->
+  <path class="bone" d="M190,175 Q250,170 290,190 L288,205 Q250,190 190,205 Z" />
+  <line class="lead" x1="177" y1="140" x2="270" y2="110" />
+  <text class="label" x="274" y="114">Talus</text>
+  <line class="lead" x1="150" y1="185" x2="60" y2="200" />
+  <text class="label" x="4" y="204">Calcaneus (heel bone)</text>
+  <line class="lead" x1="180" y1="165" x2="180" y2="240" />
+  <text class="label" x="130" y="256">Subtalar joint</text>
+</svg>

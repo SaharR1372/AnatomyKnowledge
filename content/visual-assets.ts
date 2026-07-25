@@ -202,4 +202,20 @@ export const visualAssets: VisualAssetSeed[] = [
       "A beginner-level schematic of the lower leg's calf (gastrocnemius, soleus) and shin (tibialis anterior) muscles.",
     isOriginal: true,
   },
+  {
+    slug: "ankles-feet-region",
+    title: "Ankle & foot — talus, calcaneus, and subtalar joint (simplified)",
+    filePath: "/anatomy/ankles-feet-region.svg",
+    creator: "Anatomy Learning Platform (original)",
+    license: "CC0-1.0 (public domain dedication)",
+    attributionText: "Original diagram created for this project.",
+    modificationAllowed: true,
+    commercialUseAllowed: true,
+    licenseCheckedDate: "2026-07-25",
+    altText:
+      "Simplified side view of the ankle and foot showing the talus sitting beneath the tibia and fibula, the calcaneus (heel bone) below it forming the subtalar joint, and the arch of the foot extending forward to the toes.",
+    description:
+      "A beginner-level schematic of the ankle and foot's key bones: talus and calcaneus, forming the subtalar joint.",
+    isOriginal: true,
+  },
 ];

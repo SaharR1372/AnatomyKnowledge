@@ -80,9 +80,15 @@ export const learningPaths: LearningPathSeed[] = [
         description: "The calf, shin, and outer-leg muscles that move the ankle and absorb impact with every step.",
       },
       {
+        slug: "the-ankles-feet",
+        title: "The Ankles & Feet",
+        order: 12,
+        description: "The body's base of support — the subtalar joint, the foot's arches, and balance.",
+      },
+      {
         slug: "training-safely",
         title: "Training Safely",
-        order: 12,
+        order: 13,
         description: "General safety principles and understanding a personal trainer's scope of practice.",
       },
     ],
