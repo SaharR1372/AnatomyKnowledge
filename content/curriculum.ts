@@ -38,9 +38,15 @@ export const learningPaths: LearningPathSeed[] = [
         description: "The muscles that move the shoulder blades and pull the arms — the 'pull' balance to the chest.",
       },
       {
+        slug: "the-lower-back",
+        title: "The Lower Back",
+        order: 5,
+        description: "The lumbar spine and its deep muscles, the hip hinge, and safe lifting mechanics.",
+      },
+      {
         slug: "training-safely",
         title: "Training Safely",
-        order: 5,
+        order: 6,
         description: "General safety principles and understanding a personal trainer's scope of practice.",
       },
     ],

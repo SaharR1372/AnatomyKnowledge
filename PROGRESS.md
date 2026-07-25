@@ -5,25 +5,25 @@
 > file first**, then continue from the first unchecked item. Update the checkboxes and the
 > "Session log" as you go. Keep entries terse.
 
-**Project root:** `/home/exx/Vscode-Sahar/GymKnowledge`
+**Project root:** `/home/exx/Vscode-Sahar/AnatomyKnowledge`
 **Stack decided:** Next.js 15 (App Router) · TypeScript · Tailwind CSS v3 · Prisma · SQLite (dev) → Postgres (prod) · Auth.js v5 (credentials) · Vitest
 **Package manager:** npm
 
 ## ▶ START HERE TOMORROW (resume in one glance)
-**State as of 2026-07-19 (end of session):** Full MVP is built, tested, documented, and committed.
+**State as of 2026-07-25 (end of session):** Full MVP is built, tested, documented, and committed.
 The app runs (`npm run dev`), `npm run build` is green, and **18 tests pass**. Nothing is half-finished
 — every commit is clean.
 
-**Current content:** 3 of 16 body regions complete at full depth →
-`sources=9 vocab=14 assets=5 regions=3 muscles=15 movements=12 exercises=10 lessons=12 questions=24`.
-Regions done: **Shoulder, Chest, Upper Back** (each with a "How to say it" pronunciation guide + audio).
+**Current content:** 4 of 16 body regions complete at full depth →
+`sources=9 vocab=14 assets=6 regions=4 muscles=18 movements=15 exercises=13 lessons=14 questions=29`.
+Regions done: **Shoulder, Chest, Upper Back, Lower Back** (each with a "How to say it" pronunciation guide + audio).
 
-**THE NEXT TASK:** build the **Lower back** region (then Core, then the rest — order below).
+**THE NEXT TASK:** build the **Core & abdominal** region (then Pelvis & hips, then the rest — order below).
 Follow the exact per-region pattern (see next section). Each region = ~1 file + 3 small wirings + a commit.
 
 **Quick sanity check before starting:**
 ```bash
-cd /home/exx/Vscode-Sahar/GymKnowledge
+cd /home/exx/Vscode-Sahar/AnatomyKnowledge
 git log --oneline | head      # confirm clean history
 npm run content:validate && npm test   # should pass
 ```
@@ -106,9 +106,9 @@ Region checklist (request.md §5):
 - [x] Shoulders (seed vertical slice — in content/anatomy.ts)
 - [x] Chest (content/regions/chest.ts — pec major moved here from shoulder; pec minor, serratus, diaphragm, intercostals; 3 exercises, 3 lessons, 6 quizzes)
 - [x] Upper back (content/regions/upper-back.ts — trapezius moved here from shoulder; latissimus dorsi, rhomboids, levator scapulae, teres major; 3 exercises, 2 lessons, 4 quizzes)
-Remaining (build in this order — 13 left):
-- [ ] Lower back  ← **NEXT**: erector spinae, quadratus lumborum, thoracolumbar fascia; hip-hinge/deadlift, back extension, bird-dog; heavy safety emphasis
-- [ ] Core & abdominal (rectus abdominis, obliques, transversus abdominis; plank, dead bug, pallof press)
+- [x] Lower back (content/regions/lower-back.ts — erector spinae, quadratus lumborum, multifidus; lumbar vertebrae + sacrum; Romanian deadlift, back extension, bird-dog; 2 lessons, 5 quizzes; heavy safety/hip-hinge emphasis)
+Remaining (build in this order — 12 left):
+- [ ] Core & abdominal  ← **NEXT**: rectus abdominis, obliques, transversus abdominis; plank, dead bug, pallof press
 - [ ] Pelvis & hips (iliopsoas/hip flexors, hip joint; hip-flexor & mobility work)
 - [ ] Glutes (gluteus maximus/medius/minimus; hip thrust, glute bridge, abduction)
 - [ ] Thighs (quadriceps, hamstrings, adductors, sartorius; squat, lunge, RDL, leg curl/extension)
@@ -136,3 +136,9 @@ links keep working; only `bodyRegionId` changes.
 
 ## Session log
 - 2026-07-19: Session 1 started. Inspected empty dir. Set stack. Created this tracker + resume cron. Beginning Phase 0.
+- 2026-07-25: Resumed. Committed pending PROGRESS.md tracker update. Built the **Lower Back** region
+  (content/regions/lower-back.ts): lumbar vertebrae + sacrum, lumbar intervertebral/lumbosacral joints,
+  erector spinae/quadratus lumborum/multifidus, spinal flexion/extension/lateral-flexion movements,
+  Romanian deadlift/back extension/bird-dog exercises (heavy hip-hinge safety emphasis), 2 lessons, 5 quiz
+  questions, pronunciation guide, original SVG asset. Wired into curriculum + index. Validate/seed/typecheck/
+  build/test all green (18 tests). Next: Core & abdominal region.

@@ -21,9 +21,10 @@ import { questions as shoulderQuestions } from "./quizzes";
 // Additional regions (self-contained modules).
 import { chestRegion, chestMovements, chestExercises, chestLessons, chestQuestions } from "./regions/chest";
 import { upperBackRegion, upperBackMovements, upperBackExercises, upperBackLessons, upperBackQuestions } from "./regions/upper-back";
+import { lowerBackRegion, lowerBackMovements, lowerBackExercises, lowerBackLessons, lowerBackQuestions } from "./regions/lower-back";
 
-export const bodyRegions: BodyRegionSeed[] = [shoulderRegion, chestRegion, upperBackRegion];
-export const movements: MovementSeed[] = [...shoulderMovements, ...chestMovements, ...upperBackMovements];
-export const exercises: ExerciseSeed[] = [...shoulderExercises, ...chestExercises, ...upperBackExercises];
-export const lessons: LessonSeed[] = [...shoulderLessons, ...chestLessons, ...upperBackLessons];
-export const questions: QuestionSeed[] = [...shoulderQuestions, ...chestQuestions, ...upperBackQuestions];
+export const bodyRegions: BodyRegionSeed[] = [shoulderRegion, chestRegion, upperBackRegion, lowerBackRegion];
+export const movements: MovementSeed[] = [...shoulderMovements, ...chestMovements, ...upperBackMovements, ...lowerBackMovements];
+export const exercises: ExerciseSeed[] = [...shoulderExercises, ...chestExercises, ...upperBackExercises, ...lowerBackExercises];
+export const lessons: LessonSeed[] = [...shoulderLessons, ...chestLessons, ...upperBackLessons, ...lowerBackLessons];
+export const questions: QuestionSeed[] = [...shoulderQuestions, ...chestQuestions, ...upperBackQuestions, ...lowerBackQuestions];

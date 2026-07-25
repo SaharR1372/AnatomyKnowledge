@@ -90,4 +90,20 @@ export const visualAssets: VisualAssetSeed[] = [
       "A beginner-level schematic of the major upper-back muscles: trapezius, rhomboids, and latissimus dorsi.",
     isOriginal: true,
   },
+  {
+    slug: "lower-back-region",
+    title: "Lower back region — lumbar spine, erector spinae, and quadratus lumborum (simplified)",
+    filePath: "/anatomy/lower-back-region.svg",
+    creator: "Anatomy Learning Platform (original)",
+    license: "CC0-1.0 (public domain dedication)",
+    attributionText: "Original diagram created for this project.",
+    modificationAllowed: true,
+    commercialUseAllowed: true,
+    licenseCheckedDate: "2026-07-25",
+    altText:
+      "Simplified back view showing the lumbar vertebrae stacked above the sacrum in the midline, the long erector spinae columns running alongside the spine, and the deeper quadratus lumborum between the lowest rib and the pelvis.",
+    description:
+      "A beginner-level schematic of the lower back's bony spine and its two main muscle groups: the erector spinae and quadratus lumborum.",
+    isOriginal: true,
+  },
 ];

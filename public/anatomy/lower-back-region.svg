@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 320" role="img" aria-label="Simplified back view of the lower back: erector spinae, quadratus lumborum, and the lumbar spine">
+  <title>Lower back — erector spinae, quadratus lumborum, and lumbar spine (simplified)</title>
+  <desc>Back view showing the lumbar vertebrae stacked above the sacrum in the midline, the long erector spinae columns running alongside the spine, and the deeper quadratus lumborum between the lowest rib and the pelvis.</desc>
+  <style>
+    .label { font: 600 12px system-ui, sans-serif; fill: #0f172a; }
+    .muscle { opacity: 0.4; stroke-width: 1.5; }
+    .erector { fill: #3b82f6; stroke: #1d4ed8; }
+    .qlumb { fill: #f59e0b; stroke: #b45309; }
+    .bone { fill: #cbd5e1; stroke: #475569; stroke-width: 1; }
+    .lead { stroke: #475569; stroke-width: 1; }
+    .spine { stroke: #475569; stroke-width: 3; }
+  </style>
+  <!-- pelvis / iliac crest outline -->
+  <path class="bone" d="M110,250 Q180,230 250,250 L250,285 Q180,300 110,285 Z" />
+  <!-- sacrum -->
+  <polygon class="bone" points="165,225 195,225 188,270 172,270" />
+  <!-- lumbar vertebrae stack -->
+  <g class="bone">
+    <rect x="170" y="120" width="20" height="20" rx="3" />
+    <rect x="170" y="145" width="20" height="20" rx="3" />
+    <rect x="170" y="170" width="20" height="20" rx="3" />
+    <rect x="170" y="195" width="20" height="20" rx="3" />
+    <rect x="170" y="220" width="20" height="18" rx="3" />
+  </g>
+  <!-- erector spinae columns -->
+  <path class="muscle erector" d="M165,90 Q150,160 158,240 L172,240 Q168,160 178,90 Z" />
+  <path class="muscle erector" d="M195,90 Q210,160 202,240 L188,240 Q192,160 182,90 Z" />
+  <!-- quadratus lumborum -->
+  <path class="muscle qlumb" d="M140,150 L165,150 L165,230 L148,230 Q135,190 140,150 Z" />
+  <path class="muscle qlumb" d="M220,150 L195,150 L195,230 L212,230 Q225,190 220,150 Z" />
+  <!-- spine midline -->
+  <line class="spine" x1="180" y1="70" x2="180" y2="245" />
+  <line class="lead" x1="160" y1="130" x2="70" y2="110" />
+  <text class="label" x="12" y="108">Lumbar vertebrae</text>
+  <line class="lead" x1="150" y1="180" x2="60" y2="185" />
+  <text class="label" x="6" y="189">Erector spinae</text>
+  <line class="lead" x1="140" y1="165" x2="55" y2="150" />
+  <text class="label" x="8" y="148">Quadratus lumborum</text>
+  <line class="lead" x1="185" y1="250" x2="270" y2="255" />
+  <text class="label" x="274" y="259">Sacrum</text>
+</svg>
