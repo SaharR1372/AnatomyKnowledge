@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 320" role="img" aria-label="Simplified back view of the glutes: gluteus maximus and gluteus medius">
+  <title>Glutes — gluteus maximus and gluteus medius (simplified)</title>
+  <desc>Back view of the pelvis and upper thighs showing the large rounded gluteus maximus covering each buttock, with the fan-shaped gluteus medius peeking out above and to the side of it near the hip.</desc>
+  <style>
+    .label { font: 600 12px system-ui, sans-serif; fill: #0f172a; }
+    .muscle { opacity: 0.45; stroke-width: 1.5; }
+    .bone { fill: #cbd5e1; stroke: #475569; stroke-width: 1; }
+    .medius { fill: #f59e0b; stroke: #b45309; }
+    .maximus { fill: #ef4444; stroke: #b91c1c; }
+    .lead { stroke: #475569; stroke-width: 1; }
+  </style>
+  <!-- sacrum / pelvis midline bone -->
+  <polygon class="bone" points="165,60 195,60 188,110 172,110" />
+  <!-- gluteus medius (upper/lateral, partly under maximus) -->
+  <ellipse class="muscle medius" cx="120" cy="105" rx="35" ry="30" />
+  <ellipse class="muscle medius" cx="240" cy="105" rx="35" ry="30" />
+  <!-- gluteus maximus (large rounded buttock shapes) -->
+  <ellipse class="muscle maximus" cx="130" cy="170" rx="55" ry="65" />
+  <ellipse class="muscle maximus" cx="230" cy="170" rx="55" ry="65" />
+  <line class="lead" x1="150" y1="150" x2="60" y2="260" />
+  <text class="label" x="6" y="264">Gluteus maximus</text>
+  <line class="lead" x1="140" y1="95" x2="270" y2="55" />
+  <text class="label" x="274" y="59">Gluteus medius</text>
+</svg>

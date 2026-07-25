@@ -56,9 +56,15 @@ export const learningPaths: LearningPathSeed[] = [
         description: "The pelvic ring and the ball-and-socket hip joint that links the spine to the legs.",
       },
       {
+        slug: "the-glutes",
+        title: "The Glutes",
+        order: 8,
+        description: "The powerful hip extensors and pelvic stabilizers of the buttock.",
+      },
+      {
         slug: "training-safely",
         title: "Training Safely",
-        order: 8,
+        order: 9,
         description: "General safety principles and understanding a personal trainer's scope of practice.",
       },
     ],

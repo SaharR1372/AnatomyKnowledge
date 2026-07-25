@@ -138,4 +138,20 @@ export const visualAssets: VisualAssetSeed[] = [
       "A beginner-level schematic of the pelvis's bony ring, the hip joint, and the iliopsoas hip-flexor muscle.",
     isOriginal: true,
   },
+  {
+    slug: "glutes-region",
+    title: "Glutes — gluteus maximus and gluteus medius (simplified)",
+    filePath: "/anatomy/glutes-region.svg",
+    creator: "Anatomy Learning Platform (original)",
+    license: "CC0-1.0 (public domain dedication)",
+    attributionText: "Original diagram created for this project.",
+    modificationAllowed: true,
+    commercialUseAllowed: true,
+    licenseCheckedDate: "2026-07-25",
+    altText:
+      "Simplified back view of the pelvis and upper thighs showing the large rounded gluteus maximus covering each buttock, with the fan-shaped gluteus medius peeking out above and to the side of it near the hip.",
+    description:
+      "A beginner-level schematic of the buttock's two most prominent muscles: gluteus maximus and gluteus medius.",
+    isOriginal: true,
+  },
 ];
