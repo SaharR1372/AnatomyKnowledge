@@ -14,11 +14,11 @@
 The app runs (`npm run dev`), `npm run build` is green, and **18 tests pass**. Nothing is half-finished
 — every commit is clean.
 
-**Current content:** 8 of 16 body regions complete at full depth →
-`sources=9 vocab=14 assets=10 regions=8 muscles=32 movements=26 exercises=26 lessons=22 questions=49`.
-Regions done: **Shoulder, Chest, Upper Back, Lower Back, Core & Abdominal, Pelvis & Hips, Glutes, Thighs** (each with a "How to say it" pronunciation guide + audio).
+**Current content:** 9 of 16 body regions complete at full depth →
+`sources=9 vocab=14 assets=11 regions=9 muscles=33 movements=26 exercises=29 lessons=24 questions=54`.
+Regions done: **Shoulder, Chest, Upper Back, Lower Back, Core & Abdominal, Pelvis & Hips, Glutes, Thighs, Knees** (each with a "How to say it" pronunciation guide + audio).
 
-**THE NEXT TASK:** build the **Knees** region — a JOINT-type region (then Lower Legs, then the rest — order below). The user has
+**THE NEXT TASK:** build the **Lower Legs** region (then Ankles & Feet, then the rest — order below). The user has
 asked to proceed through ALL remaining regions automatically, back-to-back, without pausing to ask for
 confirmation between them — just keep going region by region using the recipe below until all 16 are done
 (or the session ends, in which case a fresh session should read this file and resume automatically).
@@ -114,8 +114,9 @@ Region checklist (request.md §5):
 - [x] Pelvis & hips (content/regions/pelvis-hips.ts — iliopsoas, tensor fasciae latae, piriformis; hip bone, hip joint, sacroiliac joint; hip flexor march, band hip abduction, hip external-rotation mobility; 2 lessons, 5 quizzes)
 - [x] Glutes (content/regions/glutes.ts — gluteus maximus/medius/minimus; femur bone introduced here; barbell hip thrust, glute bridge, side-lying hip abduction; 2 lessons, 5 quizzes)
 - [x] Thighs (content/regions/thighs.ts — quadriceps femoris, hamstrings, adductors, sartorius; tibia bone + knee-joint introduced here; back squat, walking lunge, leg extension, leg curl; 2 lessons, 5 quizzes)
-Remaining (build in this order — 8 left):
-- [ ] Knees (JOINT region)  ← **NEXT**: patella + patellofemoral joint, ACL/MCL/meniscus, common injuries, safety; muscles live in Thighs (reuse "knee-joint" jointSlug from thighs.ts, don't redefine it)
+- [x] Knees — JOINT region (content/regions/knees.ts — patella bone + patellofemoral-joint, ACL/PCL/MCL/LCL + menisci covered in text/safety [no Ligament model in schema]; popliteus muscle; wall sit, banded terminal knee extension, lateral step-down; 2 lessons, 5 quizzes)
+Remaining (build in this order — 7 left):
+- [ ] Lower legs  ← **NEXT**: gastrocnemius, soleus, tibialis anterior, fibularis/peroneals; calf raise, toe raise
 - [ ] Pelvis & hips (iliopsoas/hip flexors, hip joint; hip-flexor & mobility work)
 - [ ] Glutes (gluteus maximus/medius/minimus; hip thrust, glute bridge, abduction)
 - [ ] Thighs (quadriceps, hamstrings, adductors, sartorius; squat, lunge, RDL, leg curl/extension)
@@ -173,5 +174,10 @@ links keep working; only `bodyRegionId` changes.
   questions, pronunciation guide, original SVG. All checks green. Documented the global-slug-uniqueness
   pattern (joint/bone/muscle slugs are Prisma-unique; reuse across regions via jointSlug/muscleSlug refs,
   or add a new distinctly-named slug for a region's own display entry) in the NOTE below so future
-  JOINT-type regions (Knees, Ankles, Elbows, Spine) get it right. Continuing sequentially, fully
-  autonomously, through the remaining 8 regions — no per-region confirmation needed. Next: Knees.
+  JOINT-type regions (Knees, Ankles, Elbows, Spine) get it right. Then built **Knees** (content/regions/
+  knees.ts), the first JOINT-type region: patella bone, patellofemoral-joint (reusing "knee-joint" from
+  thighs.ts rather than redefining it); ACL/PCL/MCL/LCL and menisci covered in descriptive text/safety
+  notes (the schema has no separate Ligament model); popliteus (a small knee-specific muscle with no
+  natural home in Thighs); wall sit, banded terminal knee extension, lateral step-down; 2 lessons, 5 quiz
+  questions, pronunciation guide, original SVG. All checks green. Continuing sequentially, fully
+  autonomously, through the remaining 7 regions — no per-region confirmation needed. Next: Lower Legs.

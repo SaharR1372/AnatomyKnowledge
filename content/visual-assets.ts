@@ -170,4 +170,20 @@ export const visualAssets: VisualAssetSeed[] = [
       "A beginner-level schematic of the thigh's front (quadriceps) and inner (adductor) muscle groups.",
     isOriginal: true,
   },
+  {
+    slug: "knees-region",
+    title: "Knee — patella, femur, and tibia (simplified)",
+    filePath: "/anatomy/knees-region.svg",
+    creator: "Anatomy Learning Platform (original)",
+    license: "CC0-1.0 (public domain dedication)",
+    attributionText: "Original diagram created for this project.",
+    modificationAllowed: true,
+    commercialUseAllowed: true,
+    licenseCheckedDate: "2026-07-25",
+    altText:
+      "Simplified front view of a slightly bent knee showing the femur above, the patella (kneecap) sitting in its groove at the front, and the tibia below, with the patellar tendon connecting the patella to the tibia.",
+    description:
+      "A beginner-level schematic of the knee's bony structure: femur, patella, and tibia.",
+    isOriginal: true,
+  },
 ];

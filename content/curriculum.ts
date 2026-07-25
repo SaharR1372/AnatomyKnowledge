@@ -68,9 +68,15 @@ export const learningPaths: LearningPathSeed[] = [
         description: "The quadriceps, hamstrings, adductors, and sartorius — the powerhouse muscles between hip and knee.",
       },
       {
+        slug: "the-knees",
+        title: "The Knees",
+        order: 10,
+        description: "The body's largest hinge joint — structure, ligaments, common injuries, and safe alignment.",
+      },
+      {
         slug: "training-safely",
         title: "Training Safely",
-        order: 10,
+        order: 11,
         description: "General safety principles and understanding a personal trainer's scope of practice.",
       },
     ],

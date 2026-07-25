@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 320" role="img" aria-label="Simplified front view of the knee joint: femur, patella, and tibia">
+  <title>Knee — patella, femur, and tibia (simplified)</title>
+  <desc>Front view of a slightly bent knee showing the femur above, the patella (kneecap) sitting in its groove at the front, and the tibia below, with the patellar tendon connecting the patella to the tibia.</desc>
+  <style>
+    .label { font: 600 12px system-ui, sans-serif; fill: #0f172a; }
+    .bone { fill: #cbd5e1; stroke: #475569; stroke-width: 1.5; }
+    .patella { fill: #f59e0b; stroke: #b45309; stroke-width: 1.5; }
+    .tendon { fill: none; stroke: #64748b; stroke-width: 4; }
+    .lead { stroke: #475569; stroke-width: 1; }
+  </style>
+  <!-- femur -->
+  <rect class="bone" x="160" y="40" width="40" height="130" rx="10" />
+  <!-- tibia -->
+  <rect class="bone" x="160" y="200" width="36" height="130" rx="8" />
+  <!-- patellar tendon -->
+  <line class="tendon" x1="180" y1="185" x2="178" y2="205" />
+  <!-- patella -->
+  <ellipse class="patella" cx="180" cy="180" rx="18" ry="22" />
+  <line class="lead" x1="180" y1="90" x2="270" y2="80" />
+  <text class="label" x="274" y="84">Femur</text>
+  <line class="lead" x1="195" y1="180" x2="280" y2="180" />
+  <text class="label" x="284" y="184">Patella (kneecap)</text>
+  <line class="lead" x1="180" y1="260" x2="270" y2="270" />
+  <text class="label" x="274" y="274">Tibia</text>
+</svg>
