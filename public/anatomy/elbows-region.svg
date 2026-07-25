@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 320" role="img" aria-label="Simplified front view of the elbow joint: humerus, radius, and ulna">
+  <title>Elbow — humerus, radius, and ulna (simplified)</title>
+  <desc>Front view of a bent elbow showing the humerus above, and the radius and ulna forming the forearm below, meeting at the elbow joint with the lateral and medial epicondyles marked on the humerus.</desc>
+  <style>
+    .label { font: 600 12px system-ui, sans-serif; fill: #0f172a; }
+    .bone { fill: #cbd5e1; stroke: #475569; stroke-width: 1.5; }
+    .epicondyle { fill: #f59e0b; stroke: #b45309; stroke-width: 1.5; }
+    .lead { stroke: #475569; stroke-width: 1; }
+  </style>
+  <!-- humerus -->
+  <rect class="bone" x="165" y="40" width="30" height="130" rx="8" />
+  <!-- epicondyles -->
+  <circle class="epicondyle" cx="155" cy="168" r="12" />
+  <circle class="epicondyle" cx="205" cy="168" r="12" />
+  <!-- radius -->
+  <rect class="bone" x="185" y="180" width="16" height="120" rx="6" />
+  <!-- ulna -->
+  <rect class="bone" x="160" y="178" width="18" height="122" rx="6" />
+  <line class="lead" x1="155" y1="168" x2="70" y2="150" />
+  <text class="label" x="4" y="148">Medial epicondyle</text>
+  <line class="lead" x1="205" y1="168" x2="290" y2="150" />
+  <text class="label" x="230" y="148">Lateral epicondyle</text>
+  <line class="lead" x1="180" y1="230" x2="280" y2="240" />
+  <text class="label" x="230" y="260">Radius &amp; ulna</text>
+</svg>

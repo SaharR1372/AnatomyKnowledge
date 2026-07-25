@@ -234,4 +234,20 @@ export const visualAssets: VisualAssetSeed[] = [
       "A beginner-level schematic of the upper arm's opposing muscle pair: biceps brachii and triceps brachii.",
     isOriginal: true,
   },
+  {
+    slug: "elbows-region",
+    title: "Elbow — humerus, radius, and ulna (simplified)",
+    filePath: "/anatomy/elbows-region.svg",
+    creator: "Anatomy Learning Platform (original)",
+    license: "CC0-1.0 (public domain dedication)",
+    attributionText: "Original diagram created for this project.",
+    modificationAllowed: true,
+    commercialUseAllowed: true,
+    licenseCheckedDate: "2026-07-25",
+    altText:
+      "Simplified front view of a bent elbow showing the humerus above, and the radius and ulna forming the forearm below, meeting at the elbow joint with the lateral and medial epicondyles marked on the humerus.",
+    description:
+      "A beginner-level schematic of the elbow's bony structure, including the medial and lateral epicondyles.",
+    isOriginal: true,
+  },
 ];

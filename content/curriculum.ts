@@ -92,9 +92,15 @@ export const learningPaths: LearningPathSeed[] = [
         description: "The biceps and triceps opposing pair, plus their quieter helpers brachialis and coracobrachialis.",
       },
       {
+        slug: "the-elbows",
+        title: "The Elbows",
+        order: 14,
+        description: "Three joints in one capsule — bending/straightening, forearm rotation, and common overuse injuries.",
+      },
+      {
         slug: "training-safely",
         title: "Training Safely",
-        order: 14,
+        order: 15,
         description: "General safety principles and understanding a personal trainer's scope of practice.",
       },
     ],
