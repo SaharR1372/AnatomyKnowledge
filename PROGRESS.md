@@ -14,11 +14,14 @@
 The app runs (`npm run dev`), `npm run build` is green, and **18 tests pass**. Nothing is half-finished
 — every commit is clean.
 
-**Current content:** 5 of 16 body regions complete at full depth →
-`sources=9 vocab=14 assets=7 regions=5 muscles=22 movements=18 exercises=16 lessons=16 questions=34`.
-Regions done: **Shoulder, Chest, Upper Back, Lower Back, Core & Abdominal** (each with a "How to say it" pronunciation guide + audio).
+**Current content:** 6 of 16 body regions complete at full depth →
+`sources=9 vocab=14 assets=8 regions=6 muscles=25 movements=22 exercises=19 lessons=18 questions=39`.
+Regions done: **Shoulder, Chest, Upper Back, Lower Back, Core & Abdominal, Pelvis & Hips** (each with a "How to say it" pronunciation guide + audio).
 
-**THE NEXT TASK:** build the **Pelvis & hips** region (then Glutes, then the rest — order below).
+**THE NEXT TASK:** build the **Glutes** region (then Thighs, then the rest — order below). The user has
+asked to proceed through ALL remaining regions automatically, back-to-back, without pausing to ask for
+confirmation between them — just keep going region by region using the recipe below until all 16 are done
+(or the session ends, in which case a fresh session should read this file and resume automatically).
 Follow the exact per-region pattern (see next section). Each region = ~1 file + 3 small wirings + a commit.
 
 **Quick sanity check before starting:**
@@ -108,8 +111,9 @@ Region checklist (request.md §5):
 - [x] Upper back (content/regions/upper-back.ts — trapezius moved here from shoulder; latissimus dorsi, rhomboids, levator scapulae, teres major; 3 exercises, 2 lessons, 4 quizzes)
 - [x] Lower back (content/regions/lower-back.ts — erector spinae, quadratus lumborum, multifidus; lumbar vertebrae + sacrum; Romanian deadlift, back extension, bird-dog; 2 lessons, 5 quizzes; heavy safety/hip-hinge emphasis)
 - [x] Core & abdominal (content/regions/core.ts — rectus abdominis, external/internal oblique, transversus abdominis; plank, dead bug, pallof press; anti-rotation/anti-extension framing; 2 lessons, 5 quizzes)
-Remaining (build in this order — 11 left):
-- [ ] Pelvis & hips  ← **NEXT**: iliopsoas/hip flexors, hip joint; hip-flexor & mobility work
+- [x] Pelvis & hips (content/regions/pelvis-hips.ts — iliopsoas, tensor fasciae latae, piriformis; hip bone, hip joint, sacroiliac joint; hip flexor march, band hip abduction, hip external-rotation mobility; 2 lessons, 5 quizzes)
+Remaining (build in this order — 10 left):
+- [ ] Glutes  ← **NEXT**: gluteus maximus/medius/minimus; hip thrust, glute bridge, abduction
 - [ ] Pelvis & hips (iliopsoas/hip flexors, hip joint; hip-flexor & mobility work)
 - [ ] Glutes (gluteus maximus/medius/minimus; hip thrust, glute bridge, abduction)
 - [ ] Thighs (quadriceps, hamstrings, adductors, sartorius; squat, lunge, RDL, leg curl/extension)
@@ -146,5 +150,9 @@ links keep working; only `bodyRegionId` changes.
   regions, back-to-back, without pausing for confirmation between them. Built **Core & Abdominal** next
   (content/regions/core.ts): rectus abdominis, external/internal oblique, transversus abdominis; anti-
   rotation/anti-extension exercise framing (plank, dead bug, Pallof press); 2 lessons, 5 quiz questions,
-  pronunciation guide, original SVG. Validate/seed/typecheck/build/test all green. Continuing sequentially
-  through the remaining 11 regions in the same session. Next: Pelvis & hips.
+  pronunciation guide, original SVG. Validate/seed/typecheck/build/test all green. Then built **Pelvis &
+  Hips** (content/regions/pelvis-hips.ts): hip bone, hip joint, sacroiliac joint; iliopsoas, tensor
+  fasciae latae, piriformis; hip-flexor march, band hip abduction, hip external-rotation mobility drill;
+  2 lessons, 5 quiz questions, pronunciation guide, original SVG. All checks green. Continuing
+  sequentially, fully autonomously, through the remaining 10 regions — no per-region confirmation needed.
+  Next: Glutes.

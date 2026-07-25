@@ -23,9 +23,10 @@ import { chestRegion, chestMovements, chestExercises, chestLessons, chestQuestio
 import { upperBackRegion, upperBackMovements, upperBackExercises, upperBackLessons, upperBackQuestions } from "./regions/upper-back";
 import { lowerBackRegion, lowerBackMovements, lowerBackExercises, lowerBackLessons, lowerBackQuestions } from "./regions/lower-back";
 import { coreRegion, coreMovements, coreExercises, coreLessons, coreQuestions } from "./regions/core";
+import { pelvisHipsRegion, pelvisHipsMovements, pelvisHipsExercises, pelvisHipsLessons, pelvisHipsQuestions } from "./regions/pelvis-hips";
 
-export const bodyRegions: BodyRegionSeed[] = [shoulderRegion, chestRegion, upperBackRegion, lowerBackRegion, coreRegion];
-export const movements: MovementSeed[] = [...shoulderMovements, ...chestMovements, ...upperBackMovements, ...lowerBackMovements, ...coreMovements];
-export const exercises: ExerciseSeed[] = [...shoulderExercises, ...chestExercises, ...upperBackExercises, ...lowerBackExercises, ...coreExercises];
-export const lessons: LessonSeed[] = [...shoulderLessons, ...chestLessons, ...upperBackLessons, ...lowerBackLessons, ...coreLessons];
-export const questions: QuestionSeed[] = [...shoulderQuestions, ...chestQuestions, ...upperBackQuestions, ...lowerBackQuestions, ...coreQuestions];
+export const bodyRegions: BodyRegionSeed[] = [shoulderRegion, chestRegion, upperBackRegion, lowerBackRegion, coreRegion, pelvisHipsRegion];
+export const movements: MovementSeed[] = [...shoulderMovements, ...chestMovements, ...upperBackMovements, ...lowerBackMovements, ...coreMovements, ...pelvisHipsMovements];
+export const exercises: ExerciseSeed[] = [...shoulderExercises, ...chestExercises, ...upperBackExercises, ...lowerBackExercises, ...coreExercises, ...pelvisHipsExercises];
+export const lessons: LessonSeed[] = [...shoulderLessons, ...chestLessons, ...upperBackLessons, ...lowerBackLessons, ...coreLessons, ...pelvisHipsLessons];
+export const questions: QuestionSeed[] = [...shoulderQuestions, ...chestQuestions, ...upperBackQuestions, ...lowerBackQuestions, ...coreQuestions, ...pelvisHipsQuestions];

@@ -50,9 +50,15 @@ export const learningPaths: LearningPathSeed[] = [
         description: "The abdominal muscles that flex, rotate, and — most importantly — brace and stabilize the trunk.",
       },
       {
+        slug: "the-pelvis-hips",
+        title: "The Pelvis & Hips",
+        order: 7,
+        description: "The pelvic ring and the ball-and-socket hip joint that links the spine to the legs.",
+      },
+      {
         slug: "training-safely",
         title: "Training Safely",
-        order: 7,
+        order: 8,
         description: "General safety principles and understanding a personal trainer's scope of practice.",
       },
     ],

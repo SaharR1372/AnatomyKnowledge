@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 320" role="img" aria-label="Simplified front view of the pelvis and hip joint: hip bone, iliopsoas, and hip joint">
+  <title>Pelvis &amp; hips — hip bone, hip joint, and iliopsoas (simplified)</title>
+  <desc>Front view of the pelvis showing the wing-shaped hip bones meeting at the pubic symphysis, the ball-and-socket hip joint where each femur meets the acetabulum, and the iliopsoas running from the lower spine across the front of the hip to the femur.</desc>
+  <style>
+    .label { font: 600 12px system-ui, sans-serif; fill: #0f172a; }
+    .muscle { opacity: 0.45; stroke-width: 1.5; }
+    .bone { fill: #cbd5e1; stroke: #475569; stroke-width: 1.5; }
+    .socket { fill: #94a3b8; stroke: #475569; stroke-width: 1.5; }
+    .psoas { fill: #3b82f6; stroke: #1d4ed8; }
+    .lead { stroke: #475569; stroke-width: 1; }
+  </style>
+  <!-- pelvis wings -->
+  <path class="bone" d="M120,60 Q80,120 95,190 L140,200 Q135,120 165,75 Z" />
+  <path class="bone" d="M240,60 Q280,120 265,190 L220,200 Q225,120 195,75 Z" />
+  <!-- pubic symphysis / lower ring -->
+  <path class="bone" d="M140,200 Q180,220 220,200 L215,235 Q180,245 145,235 Z" />
+  <!-- hip sockets -->
+  <circle class="socket" cx="120" cy="205" r="16" />
+  <circle class="socket" cx="240" cy="205" r="16" />
+  <!-- femur heads/necks -->
+  <path class="bone" d="M120,205 L110,260 L128,262 L130,215 Z" />
+  <path class="bone" d="M240,205 L250,260 L232,262 L230,215 Z" />
+  <!-- iliopsoas -->
+  <path class="muscle psoas" d="M175,70 Q160,140 128,205 L142,212 Q170,150 190,80 Z" />
+  <path class="muscle psoas" d="M185,70 Q200,140 232,205 L218,212 Q190,150 170,80 Z" />
+  <line class="lead" x1="150" y1="150" x2="60" y2="140" />
+  <text class="label" x="6" y="138">Iliopsoas</text>
+  <line class="lead" x1="120" y1="205" x2="55" y2="220" />
+  <text class="label" x="4" y="224">Hip joint</text>
+  <line class="lead" x1="130" y1="110" x2="270" y2="100" />
+  <text class="label" x="274" y="104">Hip bone (ilium)</text>
+</svg>

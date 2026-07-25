@@ -122,4 +122,20 @@ export const visualAssets: VisualAssetSeed[] = [
       "A beginner-level schematic of the core's abdominal muscles: rectus abdominis, external oblique, and transversus abdominis.",
     isOriginal: true,
   },
+  {
+    slug: "pelvis-hips-region",
+    title: "Pelvis & hips — hip bone, hip joint, and iliopsoas (simplified)",
+    filePath: "/anatomy/pelvis-hips-region.svg",
+    creator: "Anatomy Learning Platform (original)",
+    license: "CC0-1.0 (public domain dedication)",
+    attributionText: "Original diagram created for this project.",
+    modificationAllowed: true,
+    commercialUseAllowed: true,
+    licenseCheckedDate: "2026-07-25",
+    altText:
+      "Simplified front view of the pelvis showing the wing-shaped hip bones meeting at the pubic symphysis, the ball-and-socket hip joint where each femur meets the acetabulum, and the iliopsoas running from the lower spine across the front of the hip to the femur.",
+    description:
+      "A beginner-level schematic of the pelvis's bony ring, the hip joint, and the iliopsoas hip-flexor muscle.",
+    isOriginal: true,
+  },
 ];
