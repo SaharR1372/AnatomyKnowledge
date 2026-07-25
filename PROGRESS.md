@@ -9,11 +9,46 @@
 **Stack decided:** Next.js 15 (App Router) · TypeScript · Tailwind CSS v3 · Prisma · SQLite (dev) → Postgres (prod) · Auth.js v5 (credentials) · Vitest
 **Package manager:** npm
 
+## ▶ START HERE TOMORROW (resume in one glance)
+**State as of 2026-07-19 (end of session):** Full MVP is built, tested, documented, and committed.
+The app runs (`npm run dev`), `npm run build` is green, and **18 tests pass**. Nothing is half-finished
+— every commit is clean.
+
+**Current content:** 3 of 16 body regions complete at full depth →
+`sources=9 vocab=14 assets=5 regions=3 muscles=15 movements=12 exercises=10 lessons=12 questions=24`.
+Regions done: **Shoulder, Chest, Upper Back** (each with a "How to say it" pronunciation guide + audio).
+
+**THE NEXT TASK:** build the **Lower back** region (then Core, then the rest — order below).
+Follow the exact per-region pattern (see next section). Each region = ~1 file + 3 small wirings + a commit.
+
+**Quick sanity check before starting:**
+```bash
+cd /home/exx/Vscode-Sahar/GymKnowledge
+git log --oneline | head      # confirm clean history
+npm run content:validate && npm test   # should pass
+```
+
 ## How to resume
 1. Read `request.md` (the full spec) and this file.
 2. `cd` into the project root. Run `git log --oneline | head` and `ls` to see current state.
-3. Continue from the first unchecked item below. Commit after each logical unit.
+3. Continue from the first unchecked region below. Commit after each region.
 4. Keep content **evidence-based**: every educational claim needs a Source + Citation row. Never invent citations.
+
+## Per-region build recipe (proven 3× — copy Chest/Upper-Back as templates)
+1. `content/regions/<region>.ts` — export `<region>Region`, `<region>Movements`, `<region>Exercises`,
+   `<region>Lessons`, `<region>Questions`. On the region object include `assetSlugs: ["<region>-region"]`
+   and a `pronunciations: [{term, say}]` array for the hard words (the pronunciation guide + audio then
+   appear automatically on the Anatomy overview).
+2. Create `public/anatomy/<region>-region.svg` (original, simple, labelled) and add a `VisualAssetSeed`
+   for it in `content/visual-assets.ts` (CC0, with altText).
+3. Add a module `the-<region>` to the beginner path in `content/curriculum.ts` (bump `training-safely`
+   order to stay last). Lessons reference this `moduleSlug`.
+4. Wire the 5 exports into `content/index.ts` (append to bodyRegions/movements/exercises/lessons/questions).
+5. `npm run content:validate` → `npm run seed` → `npm run typecheck` → `npm run build` → `npm test` → commit.
+   (If you changed `schema.prisma`, run `npm run db:push` before seed.)
+Reminder: some muscles are canonical to a later region (e.g. pec major→Chest, trapezius→Upper Back were
+moved out of Shoulder). Move by changing which region file defines them; the muscle **slug stays stable**
+so existing exercise/quiz links keep working.
 
 ---
 
@@ -71,22 +106,24 @@ Region checklist (request.md §5):
 - [x] Shoulders (seed vertical slice — in content/anatomy.ts)
 - [x] Chest (content/regions/chest.ts — pec major moved here from shoulder; pec minor, serratus, diaphragm, intercostals; 3 exercises, 3 lessons, 6 quizzes)
 - [x] Upper back (content/regions/upper-back.ts — trapezius moved here from shoulder; latissimus dorsi, rhomboids, levator scapulae, teres major; 3 exercises, 2 lessons, 4 quizzes)
-- [ ] Lower back  <-- NEXT: erector spinae, quadratus lumborum, thoracolumbar fascia; hip-hinge/deadlift, back extension, bird-dog; heavy safety emphasis
-- [ ] Core and abdominal region (rectus abdominis, obliques, transversus abdominis; plank, dead bug, pallof press)
-- Suggested order for the rest: Lower back → Core → Pelvis/Hips → Glutes → Thighs → Knees(joint) → Lower legs → Ankles/feet(joint) → Arms → Elbows(joint) → Forearms/hands → Head/neck → Spine(structure)
-- NOTE for joint-type regions (knees, elbows, ankles, spine): fewer UNIQUE muscles — cover joint structure, ligaments, common injuries, safety, and reference muscles that live in adjacent regions.
-- [ ] Head and neck
-- [ ] Arms (upper arm: biceps/triceps)
-- [ ] Elbows
-- [ ] Forearms and hands
-- [ ] Core and abdominal region
-- [ ] Spine
-- [ ] Pelvis and hips
-- [ ] Glutes
-- [ ] Thighs
-- [ ] Knees
-- [ ] Lower legs
-- [ ] Ankles and feet
+Remaining (build in this order — 13 left):
+- [ ] Lower back  ← **NEXT**: erector spinae, quadratus lumborum, thoracolumbar fascia; hip-hinge/deadlift, back extension, bird-dog; heavy safety emphasis
+- [ ] Core & abdominal (rectus abdominis, obliques, transversus abdominis; plank, dead bug, pallof press)
+- [ ] Pelvis & hips (iliopsoas/hip flexors, hip joint; hip-flexor & mobility work)
+- [ ] Glutes (gluteus maximus/medius/minimus; hip thrust, glute bridge, abduction)
+- [ ] Thighs (quadriceps, hamstrings, adductors, sartorius; squat, lunge, RDL, leg curl/extension)
+- [ ] Knees (JOINT region: patella, ACL/MCL/meniscus, common injuries, safety; muscles live in Thighs)
+- [ ] Lower legs (gastrocnemius, soleus, tibialis anterior, fibularis/peroneals; calf raise, toe raise)
+- [ ] Ankles & feet (JOINT region: ankle/foot joints, ligaments, intrinsic foot muscles; balance/mobility)
+- [ ] Arms (biceps brachii, triceps brachii, brachialis, coracobrachialis; curls, extensions)
+- [ ] Elbows (JOINT region: elbow joint, ligaments, common issues; muscles live in Arms/Forearms)
+- [ ] Forearms & hands (wrist flexors/extensors, grip; wrist curls, carries, grip work)
+- [ ] Head & neck (sternocleidomastoid, scalenes, splenius, upper trapezius link; neck posture/safety)
+- [ ] Spine (STRUCTURE region: vertebral column, curves, discs, neutral spine; ties Lower back + Core)
+
+NOTE for JOINT/STRUCTURE regions (knees, ankles, elbows, spine): fewer UNIQUE muscles — cover the joint
+structure, ligaments, common injuries, and safety, and reference muscles that live in adjacent regions.
+Every region MUST include: `assetSlugs` (an original SVG) + a `pronunciations` list (guide + audio auto-render).
 Note: some muscles act across regions (e.g. pectoralis major = chest, was seeded under shoulder;
 move to its canonical region when building that region). Muscle slug stays stable so exercise/quiz
 links keep working; only `bodyRegionId` changes.

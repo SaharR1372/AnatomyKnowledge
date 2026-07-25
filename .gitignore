@@ -46,3 +46,6 @@ yarn-error.log*
 # Private keys / secrets
 *.pem
 *.key
+
+# Runtime lock files (scheduled task/session locks; regenerated per session)
+.claude/*.lock
