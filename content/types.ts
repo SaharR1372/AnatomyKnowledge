@@ -212,6 +212,7 @@ export interface LessonSeed {
   objectives: string[];
   prerequisiteSlugs?: string[];
   assetSlugs?: string[];
+  vocabularyTerms?: string[]; // vocabulary slugs referenced by this lesson
   citations?: CitationSeed[];
 }
 
