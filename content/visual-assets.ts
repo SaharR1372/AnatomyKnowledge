@@ -282,4 +282,20 @@ export const visualAssets: VisualAssetSeed[] = [
       "A beginner-level schematic of the neck's primary muscles: sternocleidomastoid, scalenes, splenius capitis, and upper trapezius.",
     isOriginal: true,
   },
+  {
+    slug: "spine-region",
+    title: "The vertebral column — cervical, thoracic, lumbar, sacral, and coccygeal regions with natural curves (simplified)",
+    filePath: "/anatomy/spine-region.svg",
+    creator: "Anatomy Learning Platform (original)",
+    license: "CC0-1.0 (public domain dedication)",
+    attributionText: "Original diagram created for this project.",
+    modificationAllowed: true,
+    commercialUseAllowed: true,
+    licenseCheckedDate: "2026-08-17",
+    altText:
+      "Sagittal (side) view of the entire vertebral column showing 33 vertebrae stacked from the cervical spine (top) through the thoracic, lumbar, sacral, and coccygeal regions (bottom). Intervertebral discs between each vertebra are shown, and the natural curves (cervical lordosis, thoracic kyphosis, lumbar lordosis) are annotated. The spinal cord runs down the center.",
+    description:
+      "A beginner-level schematic of the spine's complete structure, all five regions, the intervertebral discs, and the natural curves essential for shock absorption and balance.",
+    isOriginal: true,
+  },
 ];

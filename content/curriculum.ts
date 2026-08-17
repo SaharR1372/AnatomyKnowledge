@@ -110,9 +110,15 @@ export const learningPaths: LearningPathSeed[] = [
         description: "The muscles that move and stabilize the head — posture, stability, and why text neck is damaging.",
       },
       {
+        slug: "the-spine",
+        title: "The Spine (The Vertebral Column)",
+        order: 17,
+        description: "The central structural pillar: 33 bones with shock-absorbing discs, natural curves, and the importance of neutral spine and safe loading.",
+      },
+      {
         slug: "training-safely",
         title: "Training Safely",
-        order: 17,
+        order: 18,
         description: "General safety principles and understanding a personal trainer's scope of practice.",
       },
     ],
