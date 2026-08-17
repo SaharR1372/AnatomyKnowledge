@@ -14,11 +14,11 @@
 The app runs (`npm run dev`), `npm run build` is green, and **18 tests pass**. Nothing is half-finished
 — every commit is clean.
 
-**Current content:** 13 of 16 body regions complete at full depth →
-`sources=9 vocab=14 assets=15 regions=13 muscles=43 movements=34 exercises=40 lessons=32 questions=74`.
-Regions done: **Shoulder, Chest, Upper Back, Lower Back, Core & Abdominal, Pelvis & Hips, Glutes, Thighs, Knees, Lower Legs, Ankles & Feet, Arms, Elbows** (each with a "How to say it" pronunciation guide + audio).
+**Current content:** 14 of 16 body regions complete at full depth →
+`sources=9 vocab=14 assets=16 regions=14 muscles=47 movements=36 exercises=43 lessons=34 questions=79`.
+Regions done: **Shoulder, Chest, Upper Back, Lower Back, Core & Abdominal, Pelvis & Hips, Glutes, Thighs, Knees, Lower Legs, Ankles & Feet, Arms, Elbows, Forearms & Hands** (each with a "How to say it" pronunciation guide + audio).
 
-**THE NEXT TASK:** build the **Forearms & Hands** region (then Head & Neck, then Spine to finish all 16 — order below). The user has
+**THE NEXT TASK:** build the **Head & Neck** region (then Spine to finish all 16 — order below). The user has
 asked to proceed through ALL remaining regions automatically, back-to-back, without pausing to ask for
 confirmation between them — just keep going region by region using the recipe below until all 16 are done
 (or the session ends, in which case a fresh session should read this file and resume automatically).
@@ -119,8 +119,9 @@ Region checklist (request.md §5):
 - [x] Ankles & feet — JOINT region (content/regions/ankles-feet.ts — talus + calcaneus bones, subtalar joint [reuses "ankle-joint" from lower-legs.ts]; intrinsic foot muscles grouped entry; single-leg balance hold, short foot exercise, banded ankle eversion; 2 lessons, 5 quizzes)
 - [x] Arms (content/regions/arms.ts — biceps brachii, triceps brachii, brachialis, coracobrachialis; radius + ulna bones + elbow-joint introduced here; barbell curl, hammer curl, triceps pushdown; 2 lessons, 5 quizzes)
 - [x] Elbows — JOINT region (content/regions/elbows.ts — proximal-radioulnar-joint [reuses "elbow-joint" from arms.ts]; anconeus muscle; tennis/golfer's elbow covered in lesson text+safety (NOT attributed to any muscle entry — wrist flexor/extensor muscles don't exist yet, will be added in Forearms & Hands); isometric elbow flexion hold, diamond push-up; 2 lessons, 5 quizzes)
-Remaining (build in this order — 3 left):
-- [ ] Forearms & hands  ← **NEXT**: wrist flexors/extensors, grip; wrist curls, carries, grip work. IMPORTANT: elbows.ts already discusses tennis elbow (lateral epicondylitis) / golfer's elbow (medial epicondylitis) in its "tennis-golfers-elbow-lesson" — when you define the wrist-extensor and wrist-flexor muscle groups here, consider adding the eccentric wrist-extension/flexion rehab exercises that were deliberately deferred from Elbows (see elbows.ts exercises list for why) so those conditions get a proper linked exercise.
+- [x] Forearms & hands (content/regions/forearms-hands.ts — wrist-flexors, wrist-extensors, brachioradialis, finger-flexors; carpal-bones + wrist-joint introduced here; added the deferred eccentric-wrist-extension/eccentric-wrist-flexion tennis/golfer's-elbow exercises here [properly attributed, unlike the earlier anconeus mistake caught in Elbows] + farmer's carry; also retroactively added brachioradialis as a secondary muscle to arms.ts's hammer-curl for accuracy; 2 lessons, 5 quizzes)
+Remaining (build in this order — 2 left):
+- [ ] Head & neck  ← **NEXT**: sternocleidomastoid, scalenes, splenius, upper trapezius link; neck posture/safety
 - [ ] Pelvis & hips (iliopsoas/hip flexors, hip joint; hip-flexor & mobility work)
 - [ ] Glutes (gluteus maximus/medius/minimus; hip thrust, glute bridge, abduction)
 - [ ] Thighs (quadriceps, hamstrings, adductors, sartorius; squat, lunge, RDL, leg curl/extension)
@@ -203,7 +204,12 @@ links keep working; only `bodyRegionId` changes.
   notes — deliberately did NOT attribute these to the anconeus (caught and fixed an anatomical-accuracy
   mistake mid-build: the anconeus is an elbow extensor, not a wrist flexor/extensor, so it would have been
   wrong to make it the primaryMuscle of wrist-eccentric exercises); isometric elbow flexion hold, diamond
-  push-up; 2 lessons, 5 quiz questions, pronunciation guide, original SVG. All checks green. Continuing
-  sequentially, fully autonomously, through the remaining 3 regions — no per-region confirmation needed.
-  Next: Forearms & Hands (remember to add the deferred tennis/golfer's-elbow eccentric exercises once the
-  wrist flexor/extensor muscles exist there).
+  push-up; 2 lessons, 5 quiz questions, pronunciation guide, original SVG. All checks green. Then built
+  **Forearms & Hands** (content/regions/forearms-hands.ts): carpal bones + wrist joint (radiocarpal,
+  introduced here); wrist-flexors, wrist-extensors, brachioradialis, finger-flexors; added the
+  previously-deferred eccentric-wrist-extension (tennis elbow) and eccentric-wrist-flexion (golfer's
+  elbow) exercises here, now correctly attributed to the real wrist muscles; farmer's carry for grip; 2
+  lessons, 5 quiz questions, pronunciation guide, original SVG. Also retroactively added brachioradialis
+  as a secondary muscle on arms.ts's hammer-curl exercise now that it exists, for anatomical completeness.
+  All checks green. Continuing sequentially, fully autonomously, through the final 2 regions — no
+  per-region confirmation needed. Next: Head & Neck.

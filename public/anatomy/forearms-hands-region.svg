@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 320" role="img" aria-label="Simplified front view of the forearm and hand: wrist flexors and finger flexors">
+  <title>Forearm &amp; hand — wrist flexors and finger flexors (simplified)</title>
+  <desc>Front (palm-side) view of the forearm showing the wrist flexor group running from the elbow down to the wrist, and the deeper finger flexor tendons continuing across the palm into each finger.</desc>
+  <style>
+    .label { font: 600 12px system-ui, sans-serif; fill: #0f172a; }
+    .muscle { opacity: 0.45; stroke-width: 1.5; }
+    .bone { fill: #cbd5e1; stroke: #475569; stroke-width: 1; }
+    .flex { fill: #3b82f6; stroke: #1d4ed8; }
+    .fingers { fill: #f59e0b; stroke: #b45309; }
+    .lead { stroke: #475569; stroke-width: 1; }
+  </style>
+  <!-- radius/ulna shaft -->
+  <rect class="bone" x="165" y="40" width="30" height="140" rx="8" />
+  <!-- palm/hand -->
+  <path class="bone" d="M155,180 L205,180 L215,220 L145,220 Z" />
+  <!-- finger stubs -->
+  <rect class="bone" x="150" y="220" width="10" height="35" rx="4" />
+  <rect class="bone" x="168" y="220" width="10" height="42" rx="4" />
+  <rect class="bone" x="186" y="220" width="10" height="40" rx="4" />
+  <rect class="bone" x="202" y="220" width="10" height="32" rx="4" />
+  <!-- wrist flexor group -->
+  <path class="muscle flex" d="M170,55 Q150,110 160,175 L185,178 Q182,110 190,55 Z" />
+  <!-- finger flexor tendons (thin lines into fingers) -->
+  <path class="muscle fingers" d="M175,178 L155,225 M182,178 L173,232 M188,178 L191,230 M194,178 L207,218" fill="none" stroke-width="4" />
+  <line class="lead" x1="165" y1="110" x2="70" y2="100" />
+  <text class="label" x="4" y="98">Wrist flexors</text>
+  <line class="lead" x1="185" y1="210" x2="280" y2="210" />
+  <text class="label" x="230" y="206">Finger flexor</text>
+  <text class="label" x="238" y="220">tendons</text>
+</svg>

@@ -250,4 +250,20 @@ export const visualAssets: VisualAssetSeed[] = [
       "A beginner-level schematic of the elbow's bony structure, including the medial and lateral epicondyles.",
     isOriginal: true,
   },
+  {
+    slug: "forearms-hands-region",
+    title: "Forearm & hand — wrist flexors and finger flexors (simplified)",
+    filePath: "/anatomy/forearms-hands-region.svg",
+    creator: "Anatomy Learning Platform (original)",
+    license: "CC0-1.0 (public domain dedication)",
+    attributionText: "Original diagram created for this project.",
+    modificationAllowed: true,
+    commercialUseAllowed: true,
+    licenseCheckedDate: "2026-07-25",
+    altText:
+      "Simplified front (palm-side) view of the forearm showing the wrist flexor group running from the elbow down to the wrist, and the deeper finger flexor tendons continuing across the palm into each finger.",
+    description:
+      "A beginner-level schematic of the forearm's wrist-flexor muscle group and finger-flexor tendons.",
+    isOriginal: true,
+  },
 ];

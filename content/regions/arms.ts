@@ -271,11 +271,12 @@ export const armsExercises: ExerciseSeed[] = [
     movementPlane: "sagittal",
     status: "source_checked",
     primaryMuscles: ["brachialis"],
-    secondaryMuscles: ["biceps-brachii"],
+    secondaryMuscles: ["biceps-brachii", "brachioradialis"],
     joints: [{ jointSlug: "elbow-joint", jointAction: "flexion" }],
     movements: ["elbow-flexion"],
     citations: [
       { sourceSlug: OPENSTAX, claim: "The brachialis flexes the elbow regardless of forearm rotation, unlike the biceps brachii which is most active when supinated.", locator: "Ch. 11.5 Muscles of the Pectoral Girdle and Upper Limbs" },
+      { sourceSlug: OPENSTAX, claim: "The brachioradialis flexes the elbow most effectively in a neutral forearm position, as used in a hammer curl.", locator: "Ch. 11.5 Muscles of the Pectoral Girdle and Upper Limbs" },
     ],
   },
   {

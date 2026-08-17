@@ -98,9 +98,15 @@ export const learningPaths: LearningPathSeed[] = [
         description: "Three joints in one capsule — bending/straightening, forearm rotation, and common overuse injuries.",
       },
       {
+        slug: "the-forearms-hands",
+        title: "The Forearms & Hands",
+        order: 15,
+        description: "The muscles that move the wrist and grip with the fingers.",
+      },
+      {
         slug: "training-safely",
         title: "Training Safely",
-        order: 15,
+        order: 16,
         description: "General safety principles and understanding a personal trainer's scope of practice.",
       },
     ],
