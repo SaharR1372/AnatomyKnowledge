@@ -1,0 +1,92 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="500" fill="#fafafa"/>
+
+  <!-- Neck outline (front-side view) -->
+  <defs>
+    <linearGradient id="neckGradient" x1="0%" y1="0%" x2="100%">
+      <stop offset="0%" style="stop-color:#e8d4c0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d4c4b0;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="muscleGradient" x1="0%" y1="0%" x2="100%">
+      <stop offset="0%" style="stop-color:#ff9999;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#cc6666;stop-opacity:0.8" />
+    </linearGradient>
+  </defs>
+
+  <!-- Head outline -->
+  <circle cx="200" cy="80" r="45" fill="url(#neckGradient)" stroke="#333" stroke-width="1.5"/>
+
+  <!-- Jaw/chin -->
+  <path d="M 165 110 Q 200 130 235 110" fill="none" stroke="#333" stroke-width="1"/>
+
+  <!-- Neck cylinder (front view) -->
+  <rect x="160" y="120" width="80" height="150" fill="url(#neckGradient)" stroke="#333" stroke-width="1.5"/>
+
+  <!-- Sternocleidomastoid (left side, prominent) -->
+  <path d="M 175 140 Q 155 180 145 260" fill="none" stroke="#d63031" stroke-width="8" stroke-linecap="round" opacity="0.85"/>
+
+  <!-- Sternocleidomastoid (right side) -->
+  <path d="M 225 140 Q 245 180 255 260" fill="none" stroke="#d63031" stroke-width="8" stroke-linecap="round" opacity="0.85"/>
+
+  <!-- Scalenes (left, deeper layers shown as thinner lines) -->
+  <path d="M 170 160 Q 145 200 140 280" fill="none" stroke="#ff6b6b" stroke-width="5" stroke-linecap="round" opacity="0.6"/>
+
+  <!-- Scalenes (right) -->
+  <path d="M 230 160 Q 255 200 260 280" fill="none" stroke="#ff6b6b" stroke-width="5" stroke-linecap="round" opacity="0.6"/>
+
+  <!-- Trapezius upper (back of neck, posterior view suggested) -->
+  <!-- Shown as the upper back/shoulder region -->
+  <path d="M 180 250 Q 170 290 165 330" fill="none" stroke="#e17055" stroke-width="6" stroke-linecap="round" opacity="0.75"/>
+  <path d="M 220 250 Q 230 290 235 330" fill="none" stroke="#e17055" stroke-width="6" stroke-linecap="round" opacity="0.75"/>
+
+  <!-- Cervical vertebrae (central axis, simplified) -->
+  <g stroke="#666" stroke-width="1.5" fill="none">
+    <circle cx="200" cy="145" r="4" fill="#999"/>
+    <circle cx="200" cy="175" r="4" fill="#999"/>
+    <circle cx="200" cy="205" r="4" fill="#999"/>
+    <circle cx="200" cy="235" r="4" fill="#999"/>
+  </g>
+
+  <!-- Labels -->
+  <text x="20" y="40" font-size="16" font-weight="bold" fill="#333">Head & Neck Region</text>
+
+  <!-- Label for SCM -->
+  <text x="280" y="160" font-size="12" fill="#333" font-weight="500">Sternocleidomastoid</text>
+  <line x1="275" y1="155" x2="245" y2="140" stroke="#333" stroke-width="1" marker-end="url(#arrowhead)"/>
+
+  <!-- Label for Scalenes -->
+  <text x="270" y="220" font-size="12" fill="#333" font-weight="500">Scalenes</text>
+  <line x1="270" y1="215" x2="255" y2="195" stroke="#333" stroke-width="1"/>
+
+  <!-- Label for Trapezius -->
+  <text x="20" y="350" font-size="12" fill="#333" font-weight="500">Upper Trapezius</text>
+  <line x1="100" y1="345" x2="165" y2="320" stroke="#333" stroke-width="1"/>
+
+  <!-- Cervical spine label -->
+  <text x="210" y="175" font-size="11" fill="#666" font-weight="500">Cervical spine</text>
+
+  <!-- Legend -->
+  <g>
+    <rect x="20" y="400" width="360" height="80" fill="#f5f5f5" stroke="#ddd" stroke-width="1" rx="4"/>
+
+    <rect x="30" y="415" width="15" height="15" fill="#d63031" opacity="0.85"/>
+    <text x="50" y="427" font-size="11" fill="#333">Sternocleidomastoid (flexion, rotation)</text>
+
+    <rect x="30" y="440" width="15" height="15" fill="#ff6b6b" opacity="0.6"/>
+    <text x="50" y="452" font-size="11" fill="#333">Scalenes (flexion, rib elevation, lateral flexion)</text>
+
+    <rect x="30" y="465" width="15" height="15" fill="#e17055" opacity="0.75"/>
+    <text x="50" y="477" font-size="11" fill="#333">Upper Trapezius (extension, scapular elevation)</text>
+  </g>
+
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#333" />
+    </marker>
+  </defs>
+
+  <!-- Copyright/Attribution -->
+  <text x="200" y="495" font-size="9" fill="#999" text-anchor="middle">CC0 · Educational anatomy diagram</text>
+</svg>

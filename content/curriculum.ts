@@ -104,9 +104,15 @@ export const learningPaths: LearningPathSeed[] = [
         description: "The muscles that move the wrist and grip with the fingers.",
       },
       {
+        slug: "the-head-neck",
+        title: "The Head & Neck",
+        order: 16,
+        description: "The muscles that move and stabilize the head — posture, stability, and why text neck is damaging.",
+      },
+      {
         slug: "training-safely",
         title: "Training Safely",
-        order: 16,
+        order: 17,
         description: "General safety principles and understanding a personal trainer's scope of practice.",
       },
     ],

@@ -266,4 +266,20 @@ export const visualAssets: VisualAssetSeed[] = [
       "A beginner-level schematic of the forearm's wrist-flexor muscle group and finger-flexor tendons.",
     isOriginal: true,
   },
+  {
+    slug: "head-neck-region",
+    title: "Head & neck — sternocleidomastoid, scalenes, splenius, and upper trapezius (simplified)",
+    filePath: "/anatomy/head-neck-region.svg",
+    creator: "Anatomy Learning Platform (original)",
+    license: "CC0-1.0 (public domain dedication)",
+    attributionText: "Original diagram created for this project.",
+    modificationAllowed: true,
+    commercialUseAllowed: true,
+    licenseCheckedDate: "2026-08-17",
+    altText:
+      "Simplified front and lateral view of the neck showing the sternocleidomastoid on the sides, the scalenes deeper within, and the upper trapezius connecting the neck to the shoulders. The cervical vertebrae are shown as a central axis.",
+    description:
+      "A beginner-level schematic of the neck's primary muscles: sternocleidomastoid, scalenes, splenius capitis, and upper trapezius.",
+    isOriginal: true,
+  },
 ];
