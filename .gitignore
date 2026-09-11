@@ -49,3 +49,9 @@ yarn-error.log*
 
 # Runtime lock files (scheduled task/session locks; regenerated per session)
 .claude/*.lock
+
+# TypeScript incremental build info
+tsconfig.tsbuildinfo
+
+# Static demo build output (scripts/build-demo.mjs)
+/.demo-build/

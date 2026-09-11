@@ -10,6 +10,8 @@
     "dev": "next dev",
     "build": "prisma generate && next build",
     "start": "next start",
+    "demo:build": "node scripts/build-demo.mjs",
+    "demo:preview": "BASE_PATH= node scripts/build-demo.mjs && npx serve .demo-build/out -l 3001",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
     "db:generate": "prisma generate",
