@@ -53,9 +53,14 @@ fs.mkdirSync(BUILD, { recursive: true });
 
 for (const entry of [
   "src", "content", "public", "prisma", "package.json",
-  "tailwind.config.ts", "postcss.config.mjs", "tsconfig.json", "next-env.d.ts",
+  "tailwind.config.ts", "postcss.config.mjs", "tsconfig.json",
 ]) {
   fs.cpSync(path.join(ROOT, entry), path.join(BUILD, entry), { recursive: true });
+}
+// next-env.d.ts is gitignored, so it is absent on a fresh CI checkout; Next
+// regenerates it during the build. Copy it only if this tree happens to have one.
+if (fs.existsSync(path.join(ROOT, "next-env.d.ts"))) {
+  fs.cpSync(path.join(ROOT, "next-env.d.ts"), path.join(BUILD, "next-env.d.ts"));
 }
 // Reuse the installed dependencies instead of copying ~400MB of node_modules.
 fs.symlinkSync(path.join(ROOT, "node_modules"), path.join(BUILD, "node_modules"), "dir");
