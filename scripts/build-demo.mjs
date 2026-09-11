@@ -103,6 +103,20 @@ manifest.start_url = `${BASE_PATH}/`;
 manifest.icons = manifest.icons.map((i) => ({ ...i, src: `${BASE_PATH}${i.src}` }));
 fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2));
 
+// The hero's primary call to action is "create an account", which dead-ends in
+// a read-only demo. Point it at the content instead.
+patch(
+  "src/app/page.tsx",
+  '<LinkButton href="/register">Create your free account</LinkButton>',
+  '<LinkButton href="/anatomy">Explore the anatomy library</LinkButton>',
+);
+patch(
+  "src/app/page.tsx",
+  "Preview lessons without an account. Sign up to save progress, notes, and quiz history.",
+  "Browse every lesson, muscle, and exercise. Accounts, saved progress, and quizzes " +
+    "live in the full app — see the GitHub link above.",
+);
+
 // Tell every visitor what they are looking at.
 patch(
   "src/app/layout.tsx",
